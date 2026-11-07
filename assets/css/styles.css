@@ -3080,3 +3080,23 @@ color: var(--lime-400);
     display: none;
   }
 }
+
+/* Sound toggle on the home swing video */
+.video-sound {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 2;
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(251, 248, 242, 0.22);
+  background: rgba(6, 31, 23, 0.6);
+  color: var(--cream-50);
+  font: 800 0.72rem/1 var(--font-body);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.video-sound:hover {
+  color: var(--lime-400);
+}
