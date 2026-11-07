@@ -3053,3 +3053,32 @@ color: var(--lime-400);
 .reviews-grid .quote {
   height: auto;
 }
+
+/* Water-style click ring */
+.click-ripple {
+  position: fixed;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border-radius: 50%;
+  border: 2px solid rgba(31, 107, 75, 0.45);
+  pointer-events: none;
+  z-index: 9999;
+  animation: click-ring 0.75s ease-out forwards;
+}
+
+@keyframes click-ring {
+  from {
+    transform: scale(0.3);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(7);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .click-ripple {
+    display: none;
+  }
+}
