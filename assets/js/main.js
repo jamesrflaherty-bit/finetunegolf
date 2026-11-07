@@ -451,20 +451,17 @@
   });
 })();
 
-// Small click ripple on buttons. Skipped when the visitor asks for reduced motion.
+// Water-style click ripple: a ring spreads from wherever the visitor clicks.
+// Skipped when the visitor asks for reduced motion.
 (function () {
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   document.addEventListener('pointerdown', function (e) {
-    var el = e.target.closest ? e.target.closest('.btn') : null;
-    if (!el) return;
-    var r = el.getBoundingClientRect();
-    var size = Math.max(r.width, r.height) * 2;
+    if (e.button !== 0 && e.pointerType === 'mouse') return;
     var s = document.createElement('span');
-    s.className = 'ripple';
-    s.style.width = s.style.height = size + 'px';
-    s.style.left = (e.clientX - r.left - size / 2) + 'px';
-    s.style.top = (e.clientY - r.top - size / 2) + 'px';
-    el.appendChild(s);
+    s.className = 'click-ripple';
+    s.style.left = e.clientX + 'px';
+    s.style.top = e.clientY + 'px';
+    document.body.appendChild(s);
     s.addEventListener('animationend', function () { s.remove(); });
   });
 })();
