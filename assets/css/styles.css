@@ -2967,3 +2967,48 @@ td small {
   -webkit-text-fill-color: currentColor;
   font-weight: 800;
 }
+
+/* Team photo with name caption and Instagram tag placed under Jeff Jr. (left figure) */
+.photo-team.photo-team-img {
+margin: 0;
+display: block;
+min-height: 0;
+padding: 0;
+background: none;
+overflow: hidden;
+position: relative;
+}
+
+.photo-team-img img {
+display: block;
+width: 100%;
+height: auto;
+}
+
+.photo-team-img .photo-caption {
+position: absolute;
+top: 16px;
+left: 16px;
+margin: 0;
+font-size: 0.85rem;
+}
+
+.photo-ig {
+position: absolute;
+left: 34%;
+top: 93.5%;
+transform: translateX(-50%);
+padding: 3px 10px;
+border-radius: 999px;
+background: rgba(6, 31, 23, 0.85);
+color: var(--cream-50);
+font-size: 0.72rem;
+font-weight: 700;
+line-height: 1.4;
+text-decoration: none;
+white-space: nowrap;
+}
+
+.photo-ig:hover {
+color: var(--lime-400);
+}
