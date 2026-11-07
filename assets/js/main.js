@@ -12,7 +12,7 @@
     formEndpoint: '',
 
     // Option B (default): the visitor's email app opens with the request filled in, addressed to this email.
-    contactEmail: 'Jeff@jpfcompany.com',
+    contactEmail: 'finetunegolf@gmail.com',
 
     // Time zone used for the promotion countdown.
     timeZone: 'America/New_York'
