@@ -2951,3 +2951,12 @@ td small {
 .eyebrow.eyebrow-script::before {
   display: none;
 }
+/* KZG written in chrome lettering wherever it appears as text */
+.kzg-chrome {
+  background: linear-gradient(180deg, #ffffff 0%, #d4d9df 30%, #7d848d 50%, #f4f6f8 60%, #8a9199 82%, #e3e7eb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-weight: 800;
+}
