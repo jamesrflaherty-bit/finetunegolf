@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Assumes the site is published at finetunegolf.net. Change the domain if you publish elsewhere.
+Sitemap: https://finetunegolf.net/sitemap.xml
