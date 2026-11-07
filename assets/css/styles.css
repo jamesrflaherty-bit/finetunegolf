@@ -2953,10 +2953,17 @@ td small {
 }
 /* KZG written in chrome lettering wherever it appears as text */
 .kzg-chrome {
-  background: linear-gradient(180deg, #ffffff 0%, #d4d9df 30%, #7d848d 50%, #f4f6f8 60%, #8a9199 82%, #e3e7eb 100%);
+  background: linear-gradient(180deg, #c3c9d0 0%, #9aa1aa 30%, #4f565f 50%, #b8bfc7 60%, #5f6670 82%, #aab1b9 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+  font-weight: 900;
+}
+
+/* KZG set in the surrounding text colour, used beside ".com" in the Visit KZG.com links */
+.kzg-ink {
+  color: inherit;
+  -webkit-text-fill-color: currentColor;
   font-weight: 800;
 }
