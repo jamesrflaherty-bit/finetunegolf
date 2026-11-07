@@ -3012,3 +3012,8 @@ white-space: nowrap;
 .photo-ig:hover {
 color: var(--lime-400);
 }
+
+.photo-ig-james {
+  left: 69.5%;
+  top: 94.5%;
+}
