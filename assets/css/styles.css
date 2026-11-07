@@ -2921,3 +2921,16 @@ td small {
     translate: none;
   }
 }
+
+/* Team photo band on the home page: full photo, no text over it */
+.team-band {
+  margin: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.team-band img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
