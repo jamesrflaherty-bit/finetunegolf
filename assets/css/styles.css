@@ -3017,3 +3017,31 @@ color: var(--lime-400);
   left: 69.5%;
   top: 94.5%;
 }
+
+/* Click ripple on buttons (skipped for reduced motion) */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.22;
+  transform: scale(0);
+  pointer-events: none;
+  animation: ripple 0.6s ease-out forwards;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ripple {
+    display: none;
+  }
+}
