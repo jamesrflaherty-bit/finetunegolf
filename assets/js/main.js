@@ -450,3 +450,21 @@
     showStatus('success', 'Your email app should open with your request ready to send. If nothing happens, call or text us at (330) 715-2282.');
   });
 })();
+
+// Small click ripple on buttons. Skipped when the visitor asks for reduced motion.
+(function () {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.addEventListener('pointerdown', function (e) {
+    var el = e.target.closest ? e.target.closest('.btn') : null;
+    if (!el) return;
+    var r = el.getBoundingClientRect();
+    var size = Math.max(r.width, r.height) * 2;
+    var s = document.createElement('span');
+    s.className = 'ripple';
+    s.style.width = s.style.height = size + 'px';
+    s.style.left = (e.clientX - r.left - size / 2) + 'px';
+    s.style.top = (e.clientY - r.top - size / 2) + 'px';
+    el.appendChild(s);
+    s.addEventListener('animationend', function () { s.remove(); });
+  });
+})();
