@@ -2986,10 +2986,8 @@ height: auto;
 }
 
 .photo-team-img .photo-caption {
-position: absolute;
-top: 16px;
-left: 16px;
-margin: 0;
+display: inline-block;
+margin: 0 0 14px;
 font-size: 0.85rem;
 }
 
