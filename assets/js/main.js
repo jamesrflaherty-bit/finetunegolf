@@ -465,3 +465,18 @@
     s.addEventListener('animationend', function () { s.remove(); });
   });
 })();
+
+// Front-page swing video: sound toggle (the clip starts muted so autoplay works).
+(function () {
+  var swing = document.querySelector('[data-swing-video]');
+  if (!swing) return;
+  var clip = swing.querySelector('.video-main');
+  var btn = swing.querySelector('.video-sound');
+  if (!clip || !btn) return;
+  btn.addEventListener('click', function () {
+    clip.muted = !clip.muted;
+    if (!clip.muted && clip.paused) clip.play().catch(function () {});
+    btn.textContent = clip.muted ? 'Sound off' : 'Sound on';
+    btn.setAttribute('aria-pressed', clip.muted ? 'false' : 'true');
+  });
+})();
