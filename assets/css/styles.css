@@ -2953,7 +2953,7 @@ td small {
 }
 /* KZG written in chrome lettering wherever it appears as text */
 .kzg-chrome {
-  background: linear-gradient(180deg, #c3c9d0 0%, #9aa1aa 30%, #4f565f 50%, #b8bfc7 60%, #5f6670 82%, #aab1b9 100%);
+  background: linear-gradient(180deg, #e2e6ea 0%, #a4abb4 30%, #6e757e 50%, #d5dae0 60%, #7a818a 82%, #c3c9d0 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
