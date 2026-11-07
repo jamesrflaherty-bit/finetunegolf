@@ -3045,3 +3045,11 @@ color: var(--lime-400);
     display: none;
   }
 }
+
+/* Reviews: cards size to their own text, so short reviews don't leave empty space */
+.reviews-grid {
+  align-items: start;
+}
+.reviews-grid .quote {
+  height: auto;
+}
