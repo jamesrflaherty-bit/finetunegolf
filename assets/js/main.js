@@ -224,8 +224,8 @@
         // Keep the frame between 1:2 (tall phone footage) and 16:9 (landscape footage)
         frame.style.aspectRatio = String(Math.min(Math.max(ratio, 0.5), 1.78));
       }
-      // Playback starts from the observer below, once the clip is actually on screen
-      swing.hidden = false;
+      // The section is visible from the start (space is reserved in CSS, so nothing shifts).
+      // Playback starts from the observer below, once the clip is actually on screen.
       updateToggle();
     }
 
