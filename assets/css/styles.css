@@ -3105,3 +3105,24 @@ color: var(--lime-400);
   left: 55.5%;
   top: 94.5%;
 }
+
+/* Dark-section text fixes: body text inside dark sections stays white, and the Black Friday sticker stays out of the way on phones */
+.section-dark .section-head p:not(.eyebrow) {
+  color: var(--white);
+}
+
+@media (max-width: 640px) {
+  .sticker {
+    top: -14px;
+    right: -2px;
+    width: 70px;
+    height: 70px;
+  }
+  .sticker-core {
+    font-size: 1.1rem;
+  }
+  .sticker-core small {
+    font-size: 0.4rem;
+    letter-spacing: 0.1em;
+  }
+}
