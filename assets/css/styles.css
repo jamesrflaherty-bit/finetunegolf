@@ -1017,7 +1017,11 @@ ol {
 
 @media (max-width: 960px) {
   .hero-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-grid > * {
+    min-width: 0;
   }
 
   .sticker {
