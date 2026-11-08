@@ -3,6 +3,31 @@
    Colors, type and shape live in :root. Change them here and the site follows.
    ========================================================================== */
 
+/* Self-hosted fonts (latin subsets, same files Google Fonts serves) */
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/instrument-serif-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/instrument-serif-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("../fonts/manrope-variable.woff2") format("woff2");
+}
+
 :root {
   /* Forest greens */
   --forest-950: #061f17;
@@ -2419,7 +2444,7 @@ td small {
   border-radius: var(--radius-xl);
   color: var(--cream-50);
   background:
-    url("../img/team.jpg") center / cover no-repeat,
+    url("../img/team-800.webp") center / cover no-repeat,
     radial-gradient(500px 300px at 20% 10%, rgba(214, 183, 101, 0.3), transparent 70%),
     linear-gradient(160deg, var(--forest-700), var(--forest-950));
   box-shadow: var(--shadow-lg);
@@ -2756,7 +2781,7 @@ td small {
   font-family: var(--font-display);
   font-size: clamp(6rem, 18vw, 11rem);
   line-height: 0.9;
-  color: var(--lime-500);
+  color: var(--forest-700);
 }
 
 .notfound h1 {
@@ -3000,7 +3025,8 @@ position: absolute;
 left: 34%;
 top: 93.5%;
 transform: translateX(-50%);
-padding: 3px 10px;
+padding: 5px 12px;
+min-height: 26px;
 border-radius: 999px;
 background: rgba(6, 31, 23, 0.85);
 color: var(--cream-50);
