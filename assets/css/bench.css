@@ -347,3 +347,7 @@
   .bench[data-state="alert"] .bench-status { animation: none; }
   .bench-svg [data-rig] { transition: none; }
 }
+
+/* Product photo on each head selector */
+.bench-head span { grid-template-columns: 56px minmax(0, 1fr); column-gap: 10px; align-items: center; }
+.bench-head img { grid-row: 1 / span 3; width: 56px; height: 56px; border-radius: 8px; background: #fff; object-fit: cover; }
