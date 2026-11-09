@@ -18,6 +18,7 @@
   <link rel="preload" href="assets/fonts/instrument-serif-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/manrope-variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/bench.css">
   <meta property="og:image" content="https://finetunegolf.net/assets/img/team.webp">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://finetunegolf.net/assets/img/team.webp">
@@ -207,6 +208,87 @@
     </div>
   </section>
 
+  <section class="section section-alt" id="bending-bench" aria-labelledby="bench-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Interactive virtual bending bench</p>
+        <h2 id="bench-title">Mitchell Precision Loft &amp; Lie Clamping Simulation</h2>
+        <p>The steel sets the limit on every loft and lie adjustment. Forged carbon steel yields under controlled leverage. Cast stainless steel is harder and tolerates far less. Select a head, apply the bar and read the response.</p>
+      </div>
+
+      <div class="bench reveal" data-bench data-state="safe" data-material="forged">
+        <div class="bench-visual">
+          <p class="bench-bar"><span>Clamp schematic</span><span>Deflection drawn at 6&times;</span></p>
+          <svg class="bench-svg" viewBox="0 0 360 310" role="img" aria-label="Schematic of an iron head held in a clamp, with a bending bar on the hosel and a gauge marked from minus five to plus five degrees">
+            <path class="b-arc" data-arc-full d=""/>
+            <path class="b-arc-safe" data-arc-safe d=""/>
+            <g data-ticks></g>
+            <text x="14" y="150">Flat / Strong</text>
+            <text x="346" y="150" text-anchor="end">Upright / Weak</text>
+            <text x="180" y="14" text-anchor="middle">0.0&deg;</text>
+            <rect class="b-steel" x="70" y="270" width="220" height="26" rx="4"/>
+            <rect class="b-steel" x="98" y="236" width="24" height="36" rx="3"/>
+            <rect class="b-steel" x="238" y="236" width="24" height="36" rx="3"/>
+            <path class="b-head" d="M124 268 L236 268 L228 236 L132 236 Z"/>
+            <g data-rig>
+              <rect class="b-head" x="172" y="176" width="16" height="60" rx="3"/>
+              <rect class="b-rig" x="176" y="66" width="8" height="114" rx="2"/>
+              <rect class="b-rig" x="164" y="58" width="32" height="12" rx="6"/>
+              <path class="b-pointer" d="M180 44 L186 56 L174 56 Z"/>
+            </g>
+            <text x="180" y="306" text-anchor="middle">Clamp</text>
+          </svg>
+          <p class="bench-caption">Green arc: working range for the selected head. Amber ticks: half-degree steps.</p>
+        </div>
+
+        <div class="bench-panel">
+          <p class="bench-bar" style="margin:0;"><span>Live telemetry</span><span class="bench-leds" aria-hidden="true"><i></i><i></i><i></i></span></p>
+
+          <fieldset>
+            <legend>Club head</legend>
+            <div class="bench-heads">
+              <label class="bench-head">
+                <input type="radio" name="bench-head" value="forged" checked>
+                <span><strong>KZG XXV Iron</strong><small>Forged carbon steel</small><small>Safe range &plusmn;3.5&deg; to 4.0&deg;</small></span>
+              </label>
+              <label class="bench-head">
+                <input type="radio" name="bench-head" value="cast">
+                <span><strong>KZG Quad Iron</strong><small>Cast stainless steel</small><small>Restricted range &plusmn;2.0&deg;</small></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div>
+            <div class="bench-slider-row">
+              <label class="bench-label" for="bench-slider" style="margin:0;">Bending bar leverage</label>
+              <output class="bench-value" for="bench-slider" data-out="value">0.0&deg; &middot; Factory standard</output>
+            </div>
+            <input id="bench-slider" type="range" min="-5" max="5" step="0.5" value="0" data-slider>
+            <div class="bench-scale" aria-hidden="true"><span>&minus;5.0&deg;</span><span>0.0&deg;</span><span>+5.0&deg;</span></div>
+          </div>
+
+          <dl class="bench-readouts">
+            <div><dt>Applied Leverage Torque (ft-lbs)</dt><dd data-out="torque">0.0 ft-lbs</dd></div>
+            <div><dt>Hosel Flexion Variance</dt><dd data-out="flexion">0.0&deg;</dd></div>
+            <div><dt>Material Structural Status</dt><dd data-out="status">Factory standard</dd></div>
+          </dl>
+
+          <p class="bench-status" data-status role="status">
+            <svg class="bench-ico-ok" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.6-2.9 8.3-7 10-4.1-1.7-7-5.4-7-10V6z"/><path d="M9 12l2.2 2.2L15.2 10"/></svg><svg class="bench-ico-warn" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5"/><path d="M12 17.3v.2"/></svg>
+            <span data-out="banner">Ductile Material Yielding Safely under Controlled Torque.</span>
+          </p>
+
+          <button class="bench-reset" type="button" data-reset>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+            Reset to Factory Standard Specs
+          </button>
+        </div>
+      </div>
+
+      <p class="bench-note">Illustrative model. Torque figures are simplified for demonstration, and real limits vary from head to head. In the workshop, every head is measured on the Mitchell Golf Steelclub Signature Angle Machine before and after each adjustment.</p>
+    </div>
+  </section>
+
   <section class="section section-white" aria-labelledby="build-title">
     <div class="container">
       <div class="section-head center reveal">
@@ -387,5 +469,6 @@
 </nav>
 
 <script src="assets/js/main.js" defer></script>
+<script src="assets/js/bench.js" defer></script>
 </body>
 </html>
