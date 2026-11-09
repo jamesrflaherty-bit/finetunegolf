@@ -22,6 +22,7 @@
   {
     "@context": "https://schema.org",
     "@type": "SportingGoodsStore",
+    "@id": "https://finetunegolf.net/#business",
     "name": "Fine Tune Golf",
     "description": "Custom golf club fitting, precision club building and repair, using KZG components and Mitchell Golf measuring equipment.",
     "url": "https://finetunegolf.net/",
@@ -42,7 +43,35 @@
     "areaServed": ["Wadsworth, Ohio", "Wadsworth and surrounding areas, Ohio"],
     "founder": [{ "@type": "Person", "name": "Jeff Flaherty" }],
     "hasMap": "https://maps.app.goo.gl/mqLa4XzYkEKV1N688",
-    "sameAs": ["https://maps.app.goo.gl/mqLa4XzYkEKV1N688", "https://www.instagram.com/finetunegolf/"]
+    "sameAs": ["https://maps.app.goo.gl/mqLa4XzYkEKV1N688", "https://www.instagram.com/finetunegolf/"],
+    "currenciesAccepted": "USD",
+    "knowsAbout": ["Custom golf club fitting", "Golf club building", "Golf club repair", "Reshafting", "Regripping", "Loft and lie adjustment", "Shaft frequency matching"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-330-715-2282",
+      "contactType": "customer service",
+      "areaServed": "US",
+      "availableLanguage": "English"
+    },
+    "potentialAction": {
+      "@type": "ReserveAction",
+      "name": "Book an appointment",
+      "target": { "@type": "EntryPoint", "urlTemplate": "https://finetunegolf.net/contact.html#booking", "actionPlatform": ["https://schema.org/DesktopWebPlatform", "https://schema.org/MobileWebPlatform"] }
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Golf club services",
+      "url": "https://finetunegolf.net/services.html",
+      "itemListElement": [
+        { "@type": "Offer", "price": "6.00", "priceCurrency": "USD", "itemOffered": { "@type": "Service", "name": "Regrip, grip from our shop (per club, labor)" } },
+        { "@type": "Offer", "price": "30.00", "priceCurrency": "USD", "itemOffered": { "@type": "Service", "name": "Steel reshaft (per club, labor)" } },
+        { "@type": "Offer", "price": "35.00", "priceCurrency": "USD", "itemOffered": { "@type": "Service", "name": "Graphite reshaft (per club, labor)" } },
+        { "@type": "Offer", "price": "10.00", "priceCurrency": "USD", "itemOffered": { "@type": "Service", "name": "Loft and lie adjustment (per club)" } },
+        { "@type": "Offer", "price": "10.00", "priceCurrency": "USD", "itemOffered": { "@type": "Service", "name": "Shaft frequency matching (per club)" } },
+        { "@type": "Offer", "price": "35.00", "priceCurrency": "USD", "itemOffered": { "@type": "Service", "name": "Shaft flex check (full set)" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom golf club fitting", "url": "https://finetunegolf.net/fitting.html" } }
+      ]
+    }
   }
   </script>
   <meta property="og:image" content="https://finetunegolf.net/assets/img/team.webp">
