@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loft &amp; Lie Workshop Tools | Fine Tune Golf</title>
+  <meta name="description" content="Two interactive golf club tools from Fine Tune Golf: a loft and lie bending bench simulation and a spec drift estimator for forged and cast irons.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Loft &amp; Lie Workshop Tools | Fine Tune Golf">
+  <meta property="og:url" content="https://finetunegolf.net/tools.html">
+  <meta property="og:description" content="A bending bench simulation and a spec drift estimator for forged and cast irons.">
+  <link rel="canonical" href="https://finetunegolf.net/tools.html">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="assets/img/logo-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#061f17">
+  <link rel="preload" href="assets/fonts/instrument-serif-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/manrope-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <meta property="og:image" content="https://finetunegolf.net/assets/img/team.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://finetunegolf.net/assets/img/team.webp">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Loft & Lie Workshop Tools",
+    "description": "Two interactive tools: a loft and lie bending bench simulation and a spec drift estimator for forged and cast irons.",
+    "url": "https://finetunegolf.net/tools.html",
+    "about": { "@type": "SportingGoodsStore", "name": "Fine Tune Golf", "url": "https://finetunegolf.net/", "telephone": "+1-330-715-2282", "address": { "@type": "PostalAddress", "streetAddress": "130 Reimer Rd", "addressLocality": "Wadsworth", "addressRegion": "OH", "postalCode": "44281", "addressCountry": "US" } }
+  }
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="promo-bar" data-promo role="region" aria-label="Black Friday offer">
+  <div class="container promo-inner">
+    <span><strong>Black Friday savings:</strong> 10% off fittings, builds &amp; repairs with code</span>
+    <button class="promo-code" type="button" data-copy-code="BLACKFRIDAY10" aria-label="Copy promo code BLACKFRIDAY10">BLACKFRIDAY10</button>
+    <span class="promo-days" data-promo-days>Ends Black Friday, Nov 27</span>
+  </div>
+</div>
+
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="topbar-items">
+      <a href="tel:+13307152282">(330) 715-2282</a>
+      <span>130 Reimer Rd, Wadsworth, OH</span>
+    </div>
+    <span class="status-pill">By appointment &middot; call or text us</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html" aria-label="Fine Tune Golf home">
+      <img src="assets/img/logo-mark.webp" srcset="assets/img/logo-mark@2x.webp 2x" width="48" height="48" alt="">
+      <span class="brand-text">
+        <span class="brand-name">Fine Tune</span>
+        <span class="brand-sub">Golf &middot; Fitting &amp; Repair</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="craft.html">Our Craft</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="expert-notes.html">Expert Notes</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a class="btn btn-gold btn-sm nav-cta" href="contact.html?service=custom-fitting#booking">Book an appointment</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="craft.html">Our Craft</a></li>
+          <li aria-current="page">Workshop Tools</li>
+        </ol>
+      </nav>
+      <p class="eyebrow">Workshop tools</p>
+      <h1>See how steel <em>responds</em> on the bench.</h1>
+      <p class="lead">Two short simulations. The first shows how forged and cast heads take a loft and lie adjustment. The second estimates when a set is worth re-checking.</p>
+      <div class="btn-row">
+        <a class="btn btn-gold" href="#bending-bench">Bending bench</a>
+        <a class="btn btn-outline-light" href="#tuning-bench">Spec drift estimator</a>
+      </div>
+    </div>
+  </section>
+
+  <link rel="stylesheet" href="assets/css/bench.css">
+  <section class="section section-alt" id="bending-bench" aria-labelledby="bench-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Interactive virtual bending bench</p>
+        <h2 id="bench-title">Mitchell Precision Loft &amp; Lie Clamping Simulation</h2>
+        <p>The steel sets the limit on every loft and lie adjustment. Forged carbon steel yields under controlled leverage. Cast stainless steel is harder and tolerates far less. Select a head, apply the bar and read the response.</p>
+      </div>
+
+      <div class="bench reveal" data-bench data-state="safe" data-material="forged">
+        <div class="bench-visual">
+          <p class="bench-bar"><span>Clamp schematic</span><span>Deflection drawn at 6&times;</span></p>
+          <svg class="bench-svg" viewBox="0 0 360 310" role="img" aria-label="Schematic of an iron head held in a clamp, with a bending bar on the hosel and a gauge marked from minus five to plus five degrees">
+            <path class="b-arc" data-arc-full d=""/>
+            <path class="b-arc-safe" data-arc-safe d=""/>
+            <g data-ticks></g>
+            <text x="14" y="150">Flat / Strong</text>
+            <text x="346" y="150" text-anchor="end">Upright / Weak</text>
+            <text x="180" y="14" text-anchor="middle">0.0&deg;</text>
+            <rect class="b-steel" x="70" y="270" width="220" height="26" rx="4"/>
+            <rect class="b-steel" x="98" y="236" width="24" height="36" rx="3"/>
+            <rect class="b-steel" x="238" y="236" width="24" height="36" rx="3"/>
+            <path class="b-head" d="M124 268 L236 268 L228 236 L132 236 Z"/>
+            <g data-rig>
+              <rect class="b-head" x="172" y="176" width="16" height="60" rx="3"/>
+              <rect class="b-rig" x="176" y="66" width="8" height="114" rx="2"/>
+              <rect class="b-rig" x="164" y="58" width="32" height="12" rx="6"/>
+              <path class="b-pointer" d="M180 44 L186 56 L174 56 Z"/>
+            </g>
+            <text x="180" y="306" text-anchor="middle">Clamp</text>
+          </svg>
+          <p class="bench-caption">Green arc: working range for the selected head. Amber ticks: half-degree steps.</p>
+        </div>
+
+        <div class="bench-panel">
+          <p class="bench-bar" style="margin:0;"><span>Live telemetry</span><span class="bench-leds" aria-hidden="true"><i></i><i></i><i></i></span></p>
+
+          <fieldset>
+            <legend>Club head</legend>
+            <div class="bench-heads">
+              <label class="bench-head">
+                <input type="radio" name="bench-head" value="forged" checked>
+                <span><strong>KZG XXV Iron</strong><small>Forged carbon steel</small><small>Safe range &plusmn;3.5&deg; to 4.0&deg;</small></span>
+              </label>
+              <label class="bench-head">
+                <input type="radio" name="bench-head" value="cast">
+                <span><strong>KZG Quad Iron</strong><small>Cast stainless steel</small><small>Restricted range &plusmn;2.0&deg;</small></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div>
+            <div class="bench-slider-row">
+              <label class="bench-label" for="bench-slider" style="margin:0;">Bending bar leverage</label>
+              <output class="bench-value" for="bench-slider" data-out="value">0.0&deg; &middot; Factory standard</output>
+            </div>
+            <input id="bench-slider" type="range" min="-5" max="5" step="0.5" value="0" data-slider>
+            <div class="bench-scale" aria-hidden="true"><span>&minus;5.0&deg;</span><span>0.0&deg;</span><span>+5.0&deg;</span></div>
+          </div>
+
+          <dl class="bench-readouts">
+            <div><dt>Applied Leverage Torque (ft-lbs)</dt><dd data-out="torque">0.0 ft-lbs</dd></div>
+            <div><dt>Hosel Flexion Variance</dt><dd data-out="flexion">0.0&deg;</dd></div>
+            <div><dt>Material Structural Status</dt><dd data-out="status">Factory standard</dd></div>
+          </dl>
+
+          <p class="bench-status" data-status role="status">
+            <svg class="bench-ico-ok" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.6-2.9 8.3-7 10-4.1-1.7-7-5.4-7-10V6z"/><path d="M9 12l2.2 2.2L15.2 10"/></svg><svg class="bench-ico-warn" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5"/><path d="M12 17.3v.2"/></svg>
+            <span data-out="banner">Ductile Material Yielding Safely under Controlled Torque.</span>
+          </p>
+
+          <button class="bench-reset" type="button" data-reset>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+            Reset to Factory Standard Specs
+          </button>
+        </div>
+      </div>
+
+      <p class="bench-note">Illustrative model. Torque figures are simplified for demonstration, and real limits vary from head to head. In the workshop, every head is measured on the Mitchell Golf Steelclub Signature Angle Machine before and after each adjustment.</p>
+    </div>
+  </section>
+
+  <link rel="stylesheet" href="assets/css/tuning.css">
+  <section class="section" id="tuning-bench" aria-labelledby="tb-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Spec drift estimator</p>
+        <h2 id="tb-title">When will your irons need a loft and lie check?</h2>
+        <p>Spec drift is mechanical bending at the hosel. It comes from the ground shock of repeated impacts, especially on hard artificial mats over concrete. Forged irons are malleable and can gradually bend over a season of heavy use. Cast irons are rigid and resist bending under normal use.</p>
+      </div>
+
+      <div class="tb reveal" data-tb>
+        <div class="tb-head">
+          <div>
+            <p class="tb-kicker">Fine Tune Golf &middot; Workshop HUD</p>
+            <p class="tb-title"><span aria-hidden="true">⛳</span> Tuning Bench</p>
+          </div>
+          <p class="tb-online"><i aria-hidden="true"></i><span data-tb-el="status">System online</span></p>
+        </div>
+
+        <div class="tb-grid">
+          <div class="tb-panel">
+            <h3><span aria-hidden="true">🎛️</span> Control Deck</h3>
+
+            <fieldset>
+              <legend>Iron selection</legend>
+              <div class="tb-toggle">
+                <button type="button" data-tb-iron="forged" aria-pressed="true"><strong>Forged</strong><small>KZG XXV / Forged V</small></button>
+                <button type="button" data-tb-iron="cast" aria-pressed="false"><strong>Cast</strong><small>KZG Quad / PC Tour</small></button>
+              </div>
+            </fieldset>
+
+            <div>
+              <div class="tb-row">
+                <label class="tb-label" for="tb-swings">Swings Logged Per Week</label>
+                <output class="tb-value" for="tb-swings" data-tb-el="swings-out">200 <small>swings</small></output>
+              </div>
+              <input id="tb-swings" type="range" min="0" max="1000" step="10" value="200" data-tb-el="swings">
+            </div>
+
+            <fieldset>
+              <legend>Surface environment</legend>
+              <div class="tb-toggle">
+                <button type="button" data-tb-surface="mats" aria-pressed="true"><strong>Concrete Practice Mats</strong><small>Ground shock &times;2.5</small></button>
+                <button type="button" data-tb-surface="turf" aria-pressed="false"><strong>Natural Turf</strong><small>Baseline ground shock</small></button>
+              </div>
+            </fieldset>
+
+            <div>
+              <div class="tb-row">
+                <label class="tb-label" for="tb-handicap">Handicap Index</label>
+                <span class="tb-badge" data-tb-el="badge">Standard (cutoff 10.0)</span>
+              </div>
+              <input id="tb-handicap" type="number" inputmode="decimal" min="-5" max="54" step="0.1" value="12.0" aria-describedby="tb-handicap-help" data-tb-el="handicap">
+              <p class="tb-help" id="tb-handicap-help" data-tb-el="help">Index 10.0 or lower applies the high-compression multiplier.</p>
+            </div>
+
+            <div>
+              <div class="tb-row">
+                <label class="tb-label" for="tb-weeks">Weeks Since Last Calibration</label>
+                <output class="tb-value" for="tb-weeks" data-tb-el="weeks-out">4 <small>weeks</small></output>
+              </div>
+              <input id="tb-weeks" type="range" min="0" max="52" step="1" value="4" data-tb-el="weeks">
+            </div>
+          </div>
+
+          <div class="tb-panel">
+            <h3><span aria-hidden="true">📡</span> HUD Telemetry</h3>
+
+            <div>
+              <p class="tb-gauge-title">Time to Season Tune-Up</p>
+              <p class="tb-gauge-sub">Estimated Maintenance Interval</p>
+            </div>
+
+            <div class="tb-gauge" role="img" aria-label="Estimated Maintenance Interval" data-tb-el="gauge">
+              <span class="tb-ping" aria-hidden="true"></span>
+              <svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+                <g transform="rotate(-90 100 100)">
+                  <circle cx="100" cy="100" r="84" fill="none" stroke="#27272a" stroke-width="10"/>
+                  <circle class="tb-ring" cx="100" cy="100" r="84" stroke-dasharray="527.79" stroke-dashoffset="527.79" data-tb-el="ring"/>
+                  <circle cx="100" cy="100" r="70" fill="none" stroke="#22d3ee" stroke-opacity="0.35" stroke-width="1" stroke-dasharray="2 6"/>
+                </g>
+              </svg>
+              <div class="tb-gauge-read" aria-hidden="true">
+                <span class="tb-gauge-big" data-tb-el="big">--</span>
+                <span class="tb-gauge-small" data-tb-el="small">months, estimated</span>
+              </div>
+            </div>
+
+            <div class="tb-cards">
+              <p class="tb-card" data-tb-el="lock" hidden><strong><span aria-hidden="true">🔒</span> Spec Lock</strong><span>Rigid cast steel resists bending under normal use. Estimated drift is held at 0.00&deg;.</span></p>
+              <p class="tb-card is-alert" role="alert" data-tb-el="alert" hidden><strong><span aria-hidden="true">🚨</span> Attention: Spec Calibration Drift Detected</strong><span data-tb-el="alert-text"></span></p>
+            </div>
+
+            <dl class="tb-readouts">
+              <div><dt>Estimated Spec Drift</dt><dd data-tb-el="drift">0.00&deg;</dd></div>
+              <div><dt>Ground Shock Multiplier</dt><dd data-tb-el="multiplier">&times;2.50</dd></div>
+              <div><dt>Directional Tendency</dt><dd data-tb-el="tendency">Upright/De-lofted</dd></div>
+            </dl>
+
+            <div class="tb-flight">
+              <p class="tb-label">Shot Flight Deviation</p>
+              <p data-tb-el="flight">Mechanical hosel bending pushes the club upright and de-lofted. For a right-handed player that tends to start shots left: pulls or hooks.</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="tb-engage" type="button" data-tb-el="engage">Engage Mitchell Bending Bar to Blueprint Spec</button>
+        <p class="tb-sr" aria-live="polite" data-tb-el="live"></p>
+
+        <p class="tb-note"><strong>Tech Spec Note &middot;</strong> Actual club movement depends entirely on a player's individual strike quality, swing speed, and downward angle of attack. Forged clubs can gradually bend under impact forces over a heavy season of play, while cast clubs resist bending under normal use. This is an estimated maintenance interval, not a measurement of your clubs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="container">
+      <p class="eyebrow">Have yours measured</p>
+      <h2 id="cta-title">The real numbers come from the angle machine.</h2>
+      <p>These tools are illustrations. To know where your own lofts and lies sit, call or text and we'll arrange a time to measure them.</p>
+      <div class="btn-row">
+        <a class="btn btn-gold" href="contact.html#booking">Book an appointment</a>
+        <a class="btn btn-outline-light" href="tel:+13307152282">Call or text (330) 715-2282</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="index.html" aria-label="Fine Tune Golf home">
+        <img src="assets/img/logo-mark.webp" srcset="assets/img/logo-mark@2x.webp 2x" width="48" height="48" alt="">
+        <span class="brand-text">
+          <span class="brand-name">Fine Tune</span>
+          <span class="brand-sub">Golf &middot; Fitting &amp; Repair</span>
+        </span>
+      </a>
+      <p>Father-and-son custom club fitting, building and repair in Wadsworth, Ohio. Independent, not big box.</p>
+    </div>
+    <div>
+      <h2>Explore</h2>
+      <ul>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="craft.html">Our Craft</a></li>
+        <li><a href="fitting.html">Custom Club Fitting</a></li>
+        <li><a href="repair.html">Club Repair</a></li>
+        <li><a href="about.html">About Jeff &amp; James</a></li>
+        <li><a href="expert-notes.html">Expert Notes</a></li>
+        <li><a href="tools.html">Workshop Tools</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Visit</h2>
+      <ul>
+        <li>130 Reimer Rd<br>Wadsworth, OH 44281</li>
+        <li><a href="tel:+13307152282">(330) 715-2282</a></li>
+        <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=130+Reimer+Rd%2C+Wadsworth%2C+OH+44281" target="_blank" rel="noopener">Get directions</a></li>
+        <li><a href="https://maps.app.goo.gl/mqLa4XzYkEKV1N688" target="_blank" rel="noopener">See us on Google</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Appointments</h2>
+      <ul>
+        <li>Services by appointment</li>
+        <li>Flexible club drop-off, arranged by phone</li>
+        <li>Call or text to schedule a time</li>
+        <li>We work around your schedule</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; <span data-year>2026</span> Fine Tune Golf. Serving Wadsworth, Ohio and the surrounding area.</p>
+    <p><a href="contact.html">Contact and FAQs</a></p>
+  </div>
+</footer>
+
+<nav class="mobile-bar" aria-label="Quick actions">
+  <a href="tel:+13307152282">Call</a>
+  <a href="https://www.google.com/maps/dir/?api=1&amp;destination=130+Reimer+Rd%2C+Wadsworth%2C+OH+44281" target="_blank" rel="noopener">Directions</a>
+  <a href="contact.html#booking">Book</a>
+</nav>
+
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/bench.js" defer></script>
+<script src="assets/js/tuning.js" defer></script>
+</body>
+</html>

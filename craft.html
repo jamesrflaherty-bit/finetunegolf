@@ -207,197 +207,15 @@
     </div>
   </section>
 
-  <link rel="stylesheet" href="assets/css/bench.css">
-  <section class="section section-alt" id="bending-bench" aria-labelledby="bench-title">
+  <section class="section section-alt" aria-labelledby="tools-teaser-title">
     <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Interactive virtual bending bench</p>
-        <h2 id="bench-title">Mitchell Precision Loft &amp; Lie Clamping Simulation</h2>
-        <p>The steel sets the limit on every loft and lie adjustment. Forged carbon steel yields under controlled leverage. Cast stainless steel is harder and tolerates far less. Select a head, apply the bar and read the response.</p>
-      </div>
-
-      <div class="bench reveal" data-bench data-state="safe" data-material="forged">
-        <div class="bench-visual">
-          <p class="bench-bar"><span>Clamp schematic</span><span>Deflection drawn at 6&times;</span></p>
-          <svg class="bench-svg" viewBox="0 0 360 310" role="img" aria-label="Schematic of an iron head held in a clamp, with a bending bar on the hosel and a gauge marked from minus five to plus five degrees">
-            <path class="b-arc" data-arc-full d=""/>
-            <path class="b-arc-safe" data-arc-safe d=""/>
-            <g data-ticks></g>
-            <text x="14" y="150">Flat / Strong</text>
-            <text x="346" y="150" text-anchor="end">Upright / Weak</text>
-            <text x="180" y="14" text-anchor="middle">0.0&deg;</text>
-            <rect class="b-steel" x="70" y="270" width="220" height="26" rx="4"/>
-            <rect class="b-steel" x="98" y="236" width="24" height="36" rx="3"/>
-            <rect class="b-steel" x="238" y="236" width="24" height="36" rx="3"/>
-            <path class="b-head" d="M124 268 L236 268 L228 236 L132 236 Z"/>
-            <g data-rig>
-              <rect class="b-head" x="172" y="176" width="16" height="60" rx="3"/>
-              <rect class="b-rig" x="176" y="66" width="8" height="114" rx="2"/>
-              <rect class="b-rig" x="164" y="58" width="32" height="12" rx="6"/>
-              <path class="b-pointer" d="M180 44 L186 56 L174 56 Z"/>
-            </g>
-            <text x="180" y="306" text-anchor="middle">Clamp</text>
-          </svg>
-          <p class="bench-caption">Green arc: working range for the selected head. Amber ticks: half-degree steps.</p>
+      <div class="section-head center reveal">
+        <p class="eyebrow">Interactive tools</p>
+        <h2 id="tools-teaser-title">Try the bending bench and the spec drift estimator.</h2>
+        <p>Two short simulations show how forged and cast heads respond to a loft and lie adjustment, and when a set is worth re-checking.</p>
+        <div class="btn-row center" style="margin-top: 24px;">
+          <a class="btn btn-green" href="tools.html">Open the workshop tools</a>
         </div>
-
-        <div class="bench-panel">
-          <p class="bench-bar" style="margin:0;"><span>Live telemetry</span><span class="bench-leds" aria-hidden="true"><i></i><i></i><i></i></span></p>
-
-          <fieldset>
-            <legend>Club head</legend>
-            <div class="bench-heads">
-              <label class="bench-head">
-                <input type="radio" name="bench-head" value="forged" checked>
-                <span><strong>KZG XXV Iron</strong><small>Forged carbon steel</small><small>Safe range &plusmn;3.5&deg; to 4.0&deg;</small></span>
-              </label>
-              <label class="bench-head">
-                <input type="radio" name="bench-head" value="cast">
-                <span><strong>KZG Quad Iron</strong><small>Cast stainless steel</small><small>Restricted range &plusmn;2.0&deg;</small></span>
-              </label>
-            </div>
-          </fieldset>
-
-          <div>
-            <div class="bench-slider-row">
-              <label class="bench-label" for="bench-slider" style="margin:0;">Bending bar leverage</label>
-              <output class="bench-value" for="bench-slider" data-out="value">0.0&deg; &middot; Factory standard</output>
-            </div>
-            <input id="bench-slider" type="range" min="-5" max="5" step="0.5" value="0" data-slider>
-            <div class="bench-scale" aria-hidden="true"><span>&minus;5.0&deg;</span><span>0.0&deg;</span><span>+5.0&deg;</span></div>
-          </div>
-
-          <dl class="bench-readouts">
-            <div><dt>Applied Leverage Torque (ft-lbs)</dt><dd data-out="torque">0.0 ft-lbs</dd></div>
-            <div><dt>Hosel Flexion Variance</dt><dd data-out="flexion">0.0&deg;</dd></div>
-            <div><dt>Material Structural Status</dt><dd data-out="status">Factory standard</dd></div>
-          </dl>
-
-          <p class="bench-status" data-status role="status">
-            <svg class="bench-ico-ok" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.6-2.9 8.3-7 10-4.1-1.7-7-5.4-7-10V6z"/><path d="M9 12l2.2 2.2L15.2 10"/></svg><svg class="bench-ico-warn" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5"/><path d="M12 17.3v.2"/></svg>
-            <span data-out="banner">Ductile Material Yielding Safely under Controlled Torque.</span>
-          </p>
-
-          <button class="bench-reset" type="button" data-reset>
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
-            Reset to Factory Standard Specs
-          </button>
-        </div>
-      </div>
-
-      <p class="bench-note">Illustrative model. Torque figures are simplified for demonstration, and real limits vary from head to head. In the workshop, every head is measured on the Mitchell Golf Steelclub Signature Angle Machine before and after each adjustment.</p>
-    </div>
-  </section>
-
-  <link rel="stylesheet" href="assets/css/tuning.css">
-  <section class="section" id="tuning-bench" aria-labelledby="tb-title">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Spec drift estimator</p>
-        <h2 id="tb-title">When will your irons need a loft and lie check?</h2>
-        <p>Spec drift is mechanical bending at the hosel. It comes from the ground shock of repeated impacts, especially on hard artificial mats over concrete. Forged irons are malleable and can gradually bend over a season of heavy use. Cast irons are rigid and resist bending under normal use.</p>
-      </div>
-
-      <div class="tb reveal" data-tb>
-        <div class="tb-head">
-          <div>
-            <p class="tb-kicker">Fine Tune Golf &middot; Workshop HUD</p>
-            <p class="tb-title"><span aria-hidden="true">⛳</span> Tuning Bench</p>
-          </div>
-          <p class="tb-online"><i aria-hidden="true"></i><span data-tb-el="status">System online</span></p>
-        </div>
-
-        <div class="tb-grid">
-          <div class="tb-panel">
-            <h3><span aria-hidden="true">🎛️</span> Control Deck</h3>
-
-            <fieldset>
-              <legend>Iron selection</legend>
-              <div class="tb-toggle">
-                <button type="button" data-tb-iron="forged" aria-pressed="true"><strong>Forged</strong><small>KZG XXV / Forged V</small></button>
-                <button type="button" data-tb-iron="cast" aria-pressed="false"><strong>Cast</strong><small>KZG Quad / PC Tour</small></button>
-              </div>
-            </fieldset>
-
-            <div>
-              <div class="tb-row">
-                <label class="tb-label" for="tb-swings">Swings Logged Per Week</label>
-                <output class="tb-value" for="tb-swings" data-tb-el="swings-out">200 <small>swings</small></output>
-              </div>
-              <input id="tb-swings" type="range" min="0" max="1000" step="10" value="200" data-tb-el="swings">
-            </div>
-
-            <fieldset>
-              <legend>Surface environment</legend>
-              <div class="tb-toggle">
-                <button type="button" data-tb-surface="mats" aria-pressed="true"><strong>Concrete Practice Mats</strong><small>Ground shock &times;2.5</small></button>
-                <button type="button" data-tb-surface="turf" aria-pressed="false"><strong>Natural Turf</strong><small>Baseline ground shock</small></button>
-              </div>
-            </fieldset>
-
-            <div>
-              <div class="tb-row">
-                <label class="tb-label" for="tb-handicap">Handicap Index</label>
-                <span class="tb-badge" data-tb-el="badge">Standard (cutoff 10.0)</span>
-              </div>
-              <input id="tb-handicap" type="number" inputmode="decimal" min="-5" max="54" step="0.1" value="12.0" aria-describedby="tb-handicap-help" data-tb-el="handicap">
-              <p class="tb-help" id="tb-handicap-help" data-tb-el="help">Index 10.0 or lower applies the high-compression multiplier.</p>
-            </div>
-
-            <div>
-              <div class="tb-row">
-                <label class="tb-label" for="tb-weeks">Weeks Since Last Calibration</label>
-                <output class="tb-value" for="tb-weeks" data-tb-el="weeks-out">4 <small>weeks</small></output>
-              </div>
-              <input id="tb-weeks" type="range" min="0" max="52" step="1" value="4" data-tb-el="weeks">
-            </div>
-          </div>
-
-          <div class="tb-panel">
-            <h3><span aria-hidden="true">📡</span> HUD Telemetry</h3>
-
-            <div>
-              <p class="tb-gauge-title">Time to Season Tune-Up</p>
-              <p class="tb-gauge-sub">Estimated Maintenance Interval</p>
-            </div>
-
-            <div class="tb-gauge" role="img" aria-label="Estimated Maintenance Interval" data-tb-el="gauge">
-              <span class="tb-ping" aria-hidden="true"></span>
-              <svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
-                <g transform="rotate(-90 100 100)">
-                  <circle cx="100" cy="100" r="84" fill="none" stroke="#27272a" stroke-width="10"/>
-                  <circle class="tb-ring" cx="100" cy="100" r="84" stroke-dasharray="527.79" stroke-dashoffset="527.79" data-tb-el="ring"/>
-                  <circle cx="100" cy="100" r="70" fill="none" stroke="#22d3ee" stroke-opacity="0.35" stroke-width="1" stroke-dasharray="2 6"/>
-                </g>
-              </svg>
-              <div class="tb-gauge-read" aria-hidden="true">
-                <span class="tb-gauge-big" data-tb-el="big">--</span>
-                <span class="tb-gauge-small" data-tb-el="small">months, estimated</span>
-              </div>
-            </div>
-
-            <div class="tb-cards">
-              <p class="tb-card" data-tb-el="lock" hidden><strong><span aria-hidden="true">🔒</span> Spec Lock</strong><span>Rigid cast steel resists bending under normal use. Estimated drift is held at 0.00&deg;.</span></p>
-              <p class="tb-card is-alert" role="alert" data-tb-el="alert" hidden><strong><span aria-hidden="true">🚨</span> Attention: Spec Calibration Drift Detected</strong><span data-tb-el="alert-text"></span></p>
-            </div>
-
-            <dl class="tb-readouts">
-              <div><dt>Estimated Spec Drift</dt><dd data-tb-el="drift">0.00&deg;</dd></div>
-              <div><dt>Ground Shock Multiplier</dt><dd data-tb-el="multiplier">&times;2.50</dd></div>
-              <div><dt>Directional Tendency</dt><dd data-tb-el="tendency">Upright/De-lofted</dd></div>
-            </dl>
-
-            <div class="tb-flight">
-              <p class="tb-label">Shot Flight Deviation</p>
-              <p data-tb-el="flight">Mechanical hosel bending pushes the club upright and de-lofted. For a right-handed player that tends to start shots left: pulls or hooks.</p>
-            </div>
-          </div>
-        </div>
-
-        <button class="tb-engage" type="button" data-tb-el="engage">Engage Mitchell Bending Bar to Blueprint Spec</button>
-        <p class="tb-sr" aria-live="polite" data-tb-el="live"></p>
-
-        <p class="tb-note"><strong>Tech Spec Note &middot;</strong> Actual club movement depends entirely on a player's individual strike quality, swing speed, and downward angle of attack. Forged clubs can gradually bend under impact forces over a heavy season of play, while cast clubs resist bending under normal use. This is an estimated maintenance interval, not a measurement of your clubs.</p>
       </div>
     </div>
   </section>
@@ -547,6 +365,7 @@
         <li><a href="repair.html">Club Repair</a></li>
         <li><a href="about.html">About Jeff &amp; James</a></li>
         <li><a href="expert-notes.html">Expert Notes</a></li>
+        <li><a href="tools.html">Workshop Tools</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
@@ -582,7 +401,5 @@
 </nav>
 
 <script src="assets/js/main.js" defer></script>
-<script src="assets/js/bench.js" defer></script>
-<script src="assets/js/tuning.js" defer></script>
 </body>
 </html>
