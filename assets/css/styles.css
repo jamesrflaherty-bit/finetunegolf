@@ -3429,3 +3429,16 @@ blockquote p {
     font-size: clamp(2.4rem, 12vw, 2.9rem);
   }
 }
+
+/* In-text links on dark panels stay readable */
+.panel-dark p a:not(.btn),
+.bento-tile.dark p a:not(.btn),
+.section-dark p a:not(.btn) {
+  color: var(--lime-300);
+}
+
+.panel-dark p a:not(.btn):hover,
+.bento-tile.dark p a:not(.btn):hover,
+.section-dark p a:not(.btn):hover {
+  color: var(--cream-50);
+}
