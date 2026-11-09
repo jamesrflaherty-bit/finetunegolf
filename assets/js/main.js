@@ -480,3 +480,23 @@
     btn.setAttribute('aria-pressed', clip.muted ? 'false' : 'true');
   });
 })();
+
+// Contact page map: nothing loads from Google until the visitor asks for it.
+(function () {
+  var card = document.querySelector('[data-map]');
+  if (!card) return;
+  var btn = card.querySelector('[data-map-load]');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    var frame = document.createElement('iframe');
+    frame.src = 'https://www.google.com/maps?q=' + encodeURIComponent('Fine Tune Golf, 130 Reimer Rd, Wadsworth, OH 44281') + '&z=14&output=embed';
+    frame.title = 'Map showing Fine Tune Golf at 130 Reimer Rd, Wadsworth, Ohio';
+    frame.loading = 'lazy';
+    frame.referrerPolicy = 'no-referrer-when-downgrade';
+    frame.setAttribute('allowfullscreen', '');
+    card.innerHTML = '';
+    card.appendChild(frame);
+    card.classList.add('is-loaded');
+    frame.focus();
+  });
+})();
