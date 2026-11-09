@@ -3513,3 +3513,54 @@ blockquote p {
     aspect-ratio: 1 / 1;
   }
 }
+
+/* Google rating badge */
+.google-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  margin-top: 6px;
+  padding: 8px 18px 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--forest-900);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out), border-color var(--dur) ease;
+}
+
+.google-rating:hover {
+  transform: translateY(-2px);
+  color: var(--forest-900);
+  border-color: rgba(200, 162, 74, 0.6);
+  box-shadow: var(--shadow-sm);
+}
+
+.google-rating .stars {
+  flex: 0 0 auto;
+  width: 96px;
+  height: 19px;
+  fill: var(--lime-500);
+}
+
+.google-rating strong {
+  font-weight: 800;
+}
+
+.section-dark .google-rating {
+  border-color: rgba(251, 248, 242, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--cream-50);
+}
+
+.section-dark .google-rating:hover {
+  color: var(--cream-50);
+  border-color: rgba(214, 183, 101, 0.6);
+}
+
+.section-dark .google-rating .stars {
+  fill: var(--lime-400);
+}
