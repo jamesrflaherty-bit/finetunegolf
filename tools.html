@@ -106,31 +106,25 @@
     <div class="container">
       <div class="section-head reveal">
         <p class="eyebrow">Interactive virtual bending bench</p>
-        <h2 id="bench-title">Mitchell Precision Loft &amp; Lie Clamping Simulation</h2>
+        <h2 id="bench-title">Mitchell Precision Loft &amp; Lie Bending Simulation</h2>
         <p>The steel sets the limit on every loft and lie adjustment. Forged carbon steel yields under controlled leverage. Cast stainless steel is harder and tolerates far less. Select a head, apply the bar and read the response.</p>
       </div>
 
       <div class="bench reveal" data-bench data-state="safe" data-material="forged">
         <div class="bench-visual">
-          <p class="bench-bar"><span>Clamp schematic</span><span>Deflection drawn at 6&times;</span></p>
-          <svg class="bench-svg" viewBox="0 0 360 310" role="img" aria-label="Schematic of an iron head held in a clamp, with a bending bar on the hosel and a gauge marked from minus five to plus five degrees">
+          <p class="bench-bar"><span>Mitchell Steelclub Signature</span><span>Bending bar deflection</span></p>
+          <img class="bench-photo" src="assets/img/mitchell-angle-machine.webp" width="640" height="640" alt="Mitchell Golf Steelclub Signature angle machine, with an iron clamped for loft and lie bending" loading="lazy">
+          <svg class="bench-svg bench-gauge" viewBox="0 0 360 120" role="img" aria-label="Gauge marked from minus five to plus five degrees, showing the bend applied with the bending bar">
             <path class="b-arc" data-arc-full d=""/>
             <path class="b-arc-safe" data-arc-safe d=""/>
             <g data-ticks></g>
-            <text x="14" y="150">Flat / Strong</text>
-            <text x="346" y="150" text-anchor="end">Upright / Weak</text>
-            <text x="180" y="14" text-anchor="middle">0.0&deg;</text>
-            <rect class="b-steel" x="70" y="270" width="220" height="26" rx="4"/>
-            <rect class="b-steel" x="98" y="236" width="24" height="36" rx="3"/>
-            <rect class="b-steel" x="238" y="236" width="24" height="36" rx="3"/>
-            <path class="b-head" d="M124 268 L236 268 L228 236 L132 236 Z"/>
+            <text x="180" y="12" text-anchor="middle">0.0&deg;</text>
+            <text x="14" y="112">Flat / Strong</text>
+            <text x="346" y="112" text-anchor="end">Upright / Weak</text>
             <g data-rig>
-              <rect class="b-head" x="172" y="176" width="16" height="60" rx="3"/>
-              <rect class="b-rig" x="176" y="66" width="8" height="114" rx="2"/>
-              <rect class="b-rig" x="164" y="58" width="32" height="12" rx="6"/>
-              <path class="b-pointer" d="M180 44 L186 56 L174 56 Z"/>
+              <line class="b-needle" x1="180" y1="46" x2="180" y2="150"/>
+              <path class="b-pointer" d="M180 40 L186 52 L174 52 Z"/>
             </g>
-            <text x="180" y="306" text-anchor="middle">Clamp</text>
           </svg>
           <p class="bench-caption">Green arc: working range for the selected head. Amber ticks: half-degree steps.</p>
         </div>
