@@ -76,7 +76,14 @@
     <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="services.html" aria-current="page">Services</a></li>
+        <li class="has-sub">
+          <a href="services.html" aria-current="page">Services</a>
+          <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="services-menu" aria-label="Show service pages"></button>
+          <ul class="sub-menu" id="services-menu">
+            <li><a href="fitting.html">Custom Club Fitting</a></li>
+            <li><a href="repair.html">Club Repair</a></li>
+          </ul>
+        </li>
         <li><a href="craft.html">Our Craft</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="expert-notes.html">Expert Notes</a></li>
