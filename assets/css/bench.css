@@ -351,3 +351,27 @@
 /* Product photo on each head selector */
 .bench-head span { grid-template-columns: 56px minmax(0, 1fr); column-gap: 10px; align-items: center; }
 .bench-head img { grid-row: 1 / span 3; width: 56px; height: 56px; border-radius: 8px; background: #fff; object-fit: cover; }
+
+/* Mitchell machine photo and compact gauge (replaces the clamp drawing) */
+.bench-photo {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 0 auto 14px;
+  padding: 10px;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.bench-svg.bench-gauge { max-height: 150px; }
+
+.bench-svg .b-needle {
+  stroke: var(--b-accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+@media (max-width: 860px) {
+  .bench-photo { max-width: 240px; }
+}
