@@ -680,9 +680,106 @@ ol {
   color: var(--forest-900);
 }
 
-.primary-nav ul a[aria-current="page"] {
+.primary-nav ul a[aria-current="page"],
+.primary-nav ul a[aria-current="true"] {
   background: var(--forest-900);
   color: var(--lime-400);
+}
+
+/* Services drop-down */
+.primary-nav .has-sub {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.primary-nav .has-sub > a {
+  padding-right: 30px;
+}
+
+.sub-toggle {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  width: 26px;
+  height: 26px;
+  margin-top: -13px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.sub-toggle::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  margin: -6px 0 0 -4px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease, margin 0.2s ease;
+}
+
+.has-sub > a[aria-current] + .sub-toggle {
+  color: var(--lime-400);
+}
+
+.has-sub > a:not([aria-current]) + .sub-toggle {
+  color: var(--ink-2);
+}
+
+.has-sub.is-open .sub-toggle::before,
+.has-sub:hover .sub-toggle::before {
+  margin-top: -2px;
+  transform: rotate(-135deg);
+}
+
+.primary-nav .sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 20;
+  min-width: 230px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2px;
+  margin-top: 8px;
+  padding: 8px;
+  background: var(--cream-50);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+
+/* Invisible bridge so the menu stays open while the pointer moves down to it */
+.primary-nav .sub-menu::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -10px;
+  height: 10px;
+}
+
+.has-sub:hover .sub-menu,
+.has-sub:focus-within .sub-menu,
+.has-sub.is-open .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.primary-nav .sub-menu a {
+  border-radius: 12px;
 }
 
 .nav-toggle {
@@ -769,6 +866,40 @@ ol {
   .primary-nav ul a {
     padding: 14px 16px;
     font-size: 1.05rem;
+  }
+
+  /* Phone menu: show the two service pages underneath Services, always open */
+  .primary-nav .has-sub {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primary-nav .has-sub > a {
+    padding-right: 16px;
+  }
+
+  .sub-toggle {
+    display: none;
+  }
+
+  .primary-nav .sub-menu {
+    position: static;
+    min-width: 0;
+    margin: 2px 0 0 16px;
+    padding: 0 0 0 12px;
+    background: none;
+    border: 0;
+    border-left: 2px solid var(--line);
+    border-radius: 0;
+    box-shadow: none;
+    opacity: 1;
+    visibility: inherit;
+    transform: none;
+  }
+
+  .primary-nav .sub-menu a {
+    padding: 11px 14px;
+    font-size: 0.98rem;
   }
 
   .nav-cta {
