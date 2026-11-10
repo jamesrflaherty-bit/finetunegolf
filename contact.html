@@ -89,9 +89,15 @@
             <li><a href="repair.html">Club Repair</a></li>
           </ul>
         </li>
-        <li><a href="craft.html">Our Craft</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="expert-notes.html">Expert Notes</a></li>
+        <li class="has-sub">
+          <a href="about.html">About</a>
+          <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="about-menu" aria-label="Show about pages"></button>
+          <ul class="sub-menu" id="about-menu">
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="craft.html">Our Craft &amp; KZG</a></li>
+            <li><a href="expert-notes.html">Expert Notes</a></li>
+          </ul>
+        </li>
         <li><a href="contact.html" aria-current="page">Contact</a></li>
       </ul>
       <a class="btn btn-gold btn-sm nav-cta" href="contact.html?service=custom-fitting#booking">Book an appointment</a>
