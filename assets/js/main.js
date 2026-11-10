@@ -67,9 +67,38 @@
     });
   }
 
+  /* Services drop-down (desktop): the arrow button opens it for touch and keyboard */
+  var subItems = document.querySelectorAll('.has-sub');
+  function closeSubs(except) {
+    subItems.forEach(function (item) {
+      if (item !== except) {
+        item.classList.remove('is-open');
+        var b = item.querySelector('.sub-toggle');
+        if (b) { b.setAttribute('aria-expanded', 'false'); }
+      }
+    });
+  }
+  subItems.forEach(function (item) {
+    var btn = item.querySelector('.sub-toggle');
+    if (!btn) { return; }
+    btn.addEventListener('click', function (event) {
+      event.stopPropagation();
+      var open = !item.classList.contains('is-open');
+      closeSubs(item);
+      item.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+  document.addEventListener('click', function (event) {
+    if (!event.target.closest || !event.target.closest('.has-sub')) {
+      closeSubs(null);
+    }
+  });
+
   document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
       setNav(false);
+      closeSubs(null);
     }
   });
 
