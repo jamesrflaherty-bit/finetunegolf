@@ -10,11 +10,11 @@
     // Option A (recommended): the Web3Forms access key. Requests are then emailed straight to the shop
     // and the visitor sees a thank-you message on the page. Get a free key at web3forms.com.
     // This key is meant to be public; it only lets the form send to the shop's inbox.
-    web3formsKey: 'fc3f07ff-013c-47b3-85c5-b4dc2de8c1df',
+    web3formsKey: '22e50c5e-4e88-4478-b281-c9110c575e54',
 
     // Option B (used while the key above is empty): the visitor's email app opens with the request
     // filled in, addressed to this email. Also offered as a backup if Option A ever fails.
-    contactEmail: 'jamesrflaherty@gmail.com',
+    contactEmail: 'jeff@jpfcompany.com',
 
     // Time zone used for the promotion countdown.
     timeZone: 'America/New_York'
