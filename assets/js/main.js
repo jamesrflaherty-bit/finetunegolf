@@ -7,12 +7,14 @@
   document.documentElement.classList.add('js');
 
   var CONFIG = {
-    // Option A: paste a form-service URL here (for example a Formspree or Web3Forms endpoint).
-    // Leave it empty to use Option B.
-    formEndpoint: '',
+    // Option A (recommended): the Web3Forms access key. Requests are then emailed straight to the shop
+    // and the visitor sees a thank-you message on the page. Get a free key at web3forms.com.
+    // This key is meant to be public; it only lets the form send to the shop's inbox.
+    web3formsKey: 'fc3f07ff-013c-47b3-85c5-b4dc2de8c1df',
 
-    // Option B (default): the visitor's email app opens with the request filled in, addressed to this email.
-    contactEmail: 'finetunegolf@gmail.com',
+    // Option B (used while the key above is empty): the visitor's email app opens with the request
+    // filled in, addressed to this email. Also offered as a backup if Option A ever fails.
+    contactEmail: 'jamesrflaherty@gmail.com',
 
     // Time zone used for the promotion countdown.
     timeZone: 'America/New_York'
@@ -449,26 +451,45 @@
       ? select.options[select.selectedIndex].text
       : data.service;
 
-    var endpoint = form.getAttribute('data-endpoint') || CONFIG.formEndpoint;
-
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
 
-    if (endpoint) {
-      fetch(endpoint, {
+    if (CONFIG.web3formsKey) {
+      var payload = {
+        access_key: CONFIG.web3formsKey,
+        subject: 'Website request: ' + data.serviceLabel + (data.promo ? ' (promo ' + data.promo + ')' : ''),
+        from_name: 'Fine Tune Golf website',
+        name: data.name,
+        email: data.email,
+        'Phone': data.phone || 'not given',
+        'Interested in': data.serviceLabel,
+        'Promo code': data.promo || 'none',
+        'Preferred days or times': data.preferred || 'not given',
+        'Details': data.goals || 'not given'
+      };
+
+      fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' }
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload)
       }).then(function (response) {
-        if (!response.ok) {
-          throw new Error('Request failed');
-        }
+        return response.json().catch(function () { return {}; }).then(function (result) {
+          if (!response.ok || result.success === false) {
+            throw new Error('Request failed');
+          }
+        });
+      }).then(function () {
         form.reset();
         resetButton();
-        showStatus('success', 'Thank you. Your request is in, and we reply to every request, usually within one business day.');
+        showStatus('success', 'Thank you, ' + data.name.split(' ')[0] + '. Your request is in. We reply to every request, usually within one business day.');
       }).catch(function () {
         resetButton();
-        showStatus('error', 'Sorry, that did not send. Please call or text us at (330) 715-2282.');
+        showStatus('error', 'Sorry, that did not send. Please call or text us at (330) 715-2282, or ');
+        var link = document.createElement('a');
+        link.href = buildMailto(data);
+        link.textContent = 'send it by email instead';
+        status.appendChild(link);
+        status.appendChild(document.createTextNode('.'));
       });
       return;
     }
