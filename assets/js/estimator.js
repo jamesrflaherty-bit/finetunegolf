@@ -7,9 +7,9 @@
     return;
   }
 
-  var PRICE = { single: 7, set: 50, setExtra: 6, shop: 5, own: 8, putterGrip: 10, putterLL: 7, blueprint: 35, bundle: 10 };
+  var PRICE = { single: 7, set: 50, setExtra: 6, shop: 5, own: 8, putterGrip: 10, putterLL: 7, blueprint: 35, bundle: 10, flexClub: 5, flexSet: 35 };
   var LIMIT = { single: [1, 7], set: [8, 14], grip: [1, 14] };
-  var state = { ll: 'set', count: { single: 1, set: 8 }, grip: 'off', gripCount: 8, putterGrip: false, putterLL: false, bp: false };
+  var state = { ll: 'set', count: { single: 1, set: 8 }, grip: 'off', gripCount: 8, putterGrip: false, putterLL: false, bp: false, flex: false };
 
   function q(sel) { return root.querySelector(sel); }
   function all(sel) { return Array.prototype.slice.call(root.querySelectorAll(sel)); }
@@ -60,13 +60,26 @@
       lines.push('Precision Spec Blueprint: $' + PRICE.blueprint);
     }
 
+    /* Flex check follows the club count: $5 a club, capped at the $35 full-set rate from 7 clubs */
+    var flexCount = 0;
+    if (state.ll === 'set') { flexCount = state.count.set; }
+    else if (state.ll === 'single') { flexCount = state.count.single; }
+    if (state.grip !== 'off') { flexCount = Math.max(flexCount, state.gripCount); }
+    var flexFull = flexCount === 0 || flexCount >= 7;
+    var flexCost = flexFull ? PRICE.flexSet : flexCount * PRICE.flexClub;
+    if (state.flex) {
+      total += flexCost;
+      lines.push(flexFull ? 'Shaft Flex Check, full set: $' + flexCost
+        : 'Shaft Flex Check, ' + flexCount + (flexCount === 1 ? ' club' : ' clubs') + ': $' + flexCost);
+    }
+
     var bundle = state.ll === 'set' && state.grip === 'shop' && state.gripCount >= 8;
     if (bundle) {
       total -= PRICE.bundle;
       lines.push('Full-Bag Refresh Bundle: -$' + PRICE.bundle);
     }
 
-    return { lines: lines, total: total, anyLL: anyLL, bundle: bundle, plusGrips: state.grip === 'shop' };
+    return { flexFull: flexFull, flexCount: flexCount, flexCost: flexCost, lines: lines, total: total, anyLL: anyLL, bundle: bundle, plusGrips: state.grip === 'shop' };
   }
 
   function render() {
@@ -96,6 +109,10 @@
     bpText.innerHTML = r.anyLL
       ? 'Precision Spec Blueprint ($35 value) &mdash; <strong>INCLUDED FREE</strong>'
       : 'Precision Spec Blueprint <span class="mono">$35</span>';
+
+    q('[data-opt="flex"]').checked = state.flex;
+    q('[data-flex-text]').innerHTML = 'Shaft Flex Check <span class="mono">' +
+      (r.flexFull ? '$35 full set' : '$' + r.flexCost + ' · ' + r.flexCount + (r.flexCount === 1 ? ' club' : ' clubs')) + '</span>';
 
     q('[data-total]').textContent = '$' + r.total;
     var notes = [];
