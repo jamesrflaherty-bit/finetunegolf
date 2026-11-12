@@ -4307,3 +4307,13 @@ img[src*="assets/img/kzg-quad-iron"] {
   src: local("Courier New"), local("CourierNewPSMT"), local("Liberation Mono"), local("Cousine");
   size-adjust: 100%;
 }
+
+/* Small badge beside a price name, for example "Best Value" */
+.price-badge-inline {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 3px 8px;
+  vertical-align: middle;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+}
