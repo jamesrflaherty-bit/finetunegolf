@@ -4317,3 +4317,400 @@ img[src*="assets/img/kzg-quad-iron"] {
   font-size: 0.62rem;
   letter-spacing: 0.08em;
 }
+
+/* ---------- Sample spec sheet (inside the Loft & Lie price card) ---------- */
+.spec-sheet {
+  margin: 0;
+  padding: 16px 28px 24px;
+  border-top: 1px solid var(--line);
+  background: var(--cream-50);
+}
+
+.spec-sheet figcaption {
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.spec-sheet .price-badge-inline {
+  margin: 0 6px 0 0;
+}
+
+.spec-sheet table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  font: 500 0.84rem/1.3 var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.spec-sheet th,
+.spec-sheet td {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  text-align: right;
+  color: var(--ink);
+}
+
+.spec-sheet th:first-child {
+  text-align: left;
+}
+
+.spec-sheet thead th {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.spec-sheet tbody th {
+  font-weight: 500;
+  color: var(--ink-2);
+}
+
+.spec-sheet .spec-hit {
+  font-weight: 600;
+  background: rgba(184, 155, 94, 0.12);
+}
+
+/* ---------- Quick Tune-Up Estimator ---------- */
+.est-jump {
+  margin: 10px 0 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.estimator {
+  max-width: 640px;
+  margin: 40px auto 0;
+  scroll-margin-top: calc(var(--header-h) + 16px);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.est-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 22px;
+  background: var(--forest-900);
+}
+
+.est-head h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--white);
+}
+
+.est-block {
+  padding: 14px 22px;
+  border-top: 1px solid var(--line);
+}
+
+.est-label {
+  margin: 0 0 8px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.est-seg {
+  display: flex;
+  padding: 3px;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  background: var(--cream-100);
+}
+
+.est-seg button {
+  flex: 1 1 0;
+  min-height: 38px;
+  padding: 8px 6px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-2);
+  font: 600 0.82rem/1.1 var(--font-body);
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.est-seg button[aria-pressed="true"] {
+  background: var(--forest-900);
+  color: var(--lime-400);
+}
+
+.est-line {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.est-step {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.est-step button {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font: 600 1.2rem/1 var(--font-mono);
+  cursor: pointer;
+}
+
+.est-step button:hover {
+  background: var(--cream-100);
+}
+
+.est-step output {
+  min-width: 2.2ch;
+  text-align: center;
+  font: 600 1rem/1 var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.est-hint,
+.est-note {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.4;
+  color: var(--ink-3);
+}
+
+.est-note {
+  margin-top: 8px;
+  font-style: italic;
+}
+
+.est-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  margin-top: 10px;
+}
+
+.est-checks label,
+.est-bp label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.estimator input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--forest-900);
+}
+
+.est-bp strong {
+  color: var(--forest-600);
+  letter-spacing: 0.04em;
+}
+
+.est-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 22px;
+  border-top: 1px solid var(--line);
+  background: var(--cream-50);
+}
+
+.est-total p {
+  margin: 0;
+}
+
+.est-total-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.est-total-note {
+  min-height: 1.3em;
+  font-size: 0.84rem;
+  color: var(--ink-3);
+}
+
+.est-total-amount {
+  font: 700 2rem/1 var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+.est-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  padding: 14px 22px 18px;
+}
+
+.est-actions .btn {
+  flex: 1 1 240px;
+}
+
+.est-copy {
+  flex: 0 0 auto;
+  min-height: 44px;
+  margin-inline: auto;
+  padding: 8px 12px;
+  border: 0;
+  background: transparent;
+  color: var(--ink-2);
+  font: 600 0.9rem/1 var(--font-body);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.est-copy.is-copied {
+  color: var(--forest-600);
+  text-decoration: none;
+}
+
+@media (max-width: 480px) {
+  .spec-sheet {
+    padding-inline: 18px;
+  }
+
+  .est-head,
+  .est-block,
+  .est-total,
+  .est-actions {
+    padding-inline: 16px;
+  }
+
+  .est-seg button {
+    font-size: 0.76rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .estimator {
+    margin-top: 28px;
+  }
+
+  .est-head {
+    padding-block: 11px;
+  }
+
+  .est-head h3 {
+    font-size: 1.05rem;
+  }
+
+  .est-block {
+    padding-block: 10px;
+  }
+
+  .est-label {
+    margin-bottom: 6px;
+  }
+
+  .est-line,
+  .est-checks {
+    margin-top: 8px;
+  }
+
+  .est-step button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .est-checks {
+    gap: 0 16px;
+  }
+
+  .est-checks label,
+  .est-bp label {
+    min-height: 32px;
+    font-size: 0.88rem;
+  }
+
+  .est-note {
+    margin-top: 4px;
+    font-size: 0.8rem;
+  }
+
+  .est-total {
+    padding-block: 10px;
+  }
+
+  .est-total-amount {
+    font-size: 1.7rem;
+  }
+
+  .est-actions {
+    gap: 0;
+    padding-block: 12px 6px;
+  }
+
+  .est-actions .btn {
+    flex-basis: 100%;
+  }
+}
+
+.est-head h3,
+.est-head .price-badge {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+/* Spec sheet: undo the site-wide dark table header and wide minimum */
+.spec-sheet table {
+  min-width: 0;
+}
+
+.spec-sheet th,
+.spec-sheet td {
+  vertical-align: middle;
+  background: var(--white);
+}
+
+.spec-sheet thead th {
+  background: var(--cream-100);
+}
+
+.spec-sheet tbody th {
+  font-size: 0.84rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.spec-sheet tbody tr:hover td {
+  background: var(--white);
+}
+
+.spec-sheet tbody tr:last-child td {
+  border-bottom: 1px solid var(--line);
+}
+
+.spec-sheet .spec-hit,
+.spec-sheet tbody tr:hover .spec-hit {
+  background: #f6f1e4;
+}
