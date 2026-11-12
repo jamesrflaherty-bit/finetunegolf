@@ -1,3 +1,4 @@
+ok
 /* ==========================================================================
    Fine Tune Golf - site stylesheet (refreshed look)
    Colors, type and shape live in :root. Change them here and the site follows.
@@ -2923,12 +2924,23 @@ td small {
 }
 /* KZG written in chrome lettering wherever it appears as text */
 .kzg-chrome {
-  background: linear-gradient(180deg, #e2e6ea 0%, #a4abb4 30%, #6e757e 50%, #d5dae0 60%, #7a818a 82%, #c3c9d0 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  font-weight: 900;
+  color: var(--forest-950);
+  -webkit-text-fill-color: currentColor;
+  font-weight: 800;
+}
+
+/* On dark surfaces KZG takes the surrounding text colour so it stays readable */
+.hero .kzg-chrome,
+.page-hero .kzg-chrome,
+.section-dark .kzg-chrome,
+.cta-band .kzg-chrome,
+.site-footer .kzg-chrome,
+.topbar .kzg-chrome,
+.price-card-head .kzg-chrome,
+.trust-bar .kzg-chrome,
+.trust-ticker .kzg-chrome {
+  color: inherit;
+  -webkit-text-fill-color: currentColor;
 }
 
 /* KZG set in the surrounding text colour, used beside ".com" in the Visit KZG.com links */
