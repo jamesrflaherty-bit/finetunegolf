@@ -378,8 +378,7 @@ ol {
 .cta-band .eyebrow,
 .panel-dark .eyebrow,
 .info-card .eyebrow,
-.bento-tile.dark .eyebrow,
-.promo-card .eyebrow {
+.bento-tile.dark .eyebrow {
   background: rgba(197, 160, 89, 0.12);
   color: var(--lime-400);
 }
@@ -503,53 +502,6 @@ ol {
 
 .link-arrow:hover::after {
   transform: translateX(5px);
-}
-
-/* ---------- Black Friday promo bar ---------- */
-.promo-bar {
-  position: relative;
-  z-index: 120;
-  background: var(--lime-400);
-  color: var(--forest-950);
-  font-size: 0.92rem;
-}
-
-.promo-inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 8px 14px;
-  padding-block: 10px;
-  text-align: center;
-  line-height: 1.35;
-}
-
-.promo-inner strong {
-  font-weight: 800;
-}
-
-.promo-code {
-  display: inline-flex;
-  align-items: center;
-  padding: 7px 12px;
-  border: 1.5px dashed var(--forest-950);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.45);
-  color: var(--forest-950);
-  font: 800 0.86rem/1 var(--font-body);
-  letter-spacing: 0.08em;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.promo-code:hover {
-  background: var(--white);
-}
-
-.promo-days {
-  font-weight: 700;
-  opacity: 0.85;
 }
 
 /* ---------- Top bar ---------- */
@@ -967,75 +919,8 @@ ol {
   color: rgba(244, 243, 239, 0.92);
 }
 
-.promo-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 28px;
-  padding: 10px 18px;
-  border-radius: 999px;
-  border: 1px solid rgba(197, 160, 89, 0.4);
-  background: rgba(197, 160, 89, 0.14);
-  color: var(--cream-50);
-  font-size: 0.94rem;
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-}
-
-.promo-chip strong {
-  color: var(--lime-400);
-  font-weight: 800;
-}
-
-.promo-chip:hover {
-  background: rgba(197, 160, 89, 0.24);
-  color: var(--cream-50);
-}
-
 .hero-visual {
   position: relative;
-}
-
-.sticker {
-  position: absolute;
-  top: -34px;
-  right: -10px;
-  z-index: 3;
-  width: 92px;
-  height: 92px;
-}
-
-.sticker svg {
-  width: 100%;
-  height: 100%;
-  animation: spin 26s linear infinite;
-}
-
-.sticker-core {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  line-height: 0.9;
-  color: var(--forest-950);
-}
-
-.sticker-core small {
-  font-family: var(--font-body);
-  font-size: 0.48rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 /* Shop status and glass card */
@@ -1179,10 +1064,6 @@ ol {
 
   .hero-grid > * {
     min-width: 0;
-  }
-
-  .sticker {
-    right: 0;
   }
 }
 
@@ -2148,104 +2029,6 @@ ol {
   font-size: 1.1rem;
 }
 
-/* ---------- Black Friday offer card ---------- */
-.promo-card {
-  position: relative;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
-  gap: clamp(28px, 4vw, 56px);
-  align-items: center;
-  padding: clamp(32px, 5vw, 66px);
-  border-radius: var(--radius-xl);
-  color: var(--cream-50);
-  background:
-    radial-gradient(600px 300px at 100% 0%, rgba(197, 160, 89, 0.3), transparent 60%),
-    linear-gradient(160deg, var(--forest-800), var(--forest-950));
-  box-shadow: var(--shadow-lg);
-}
-
-.promo-card h2 {
-  color: var(--cream-50);
-}
-
-.promo-card h2 em {
-  color: var(--lime-400);
-}
-
-.promo-card p {
-  color: rgba(244, 243, 239, 0.86);
-}
-
-.code-box {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 14px;
-  margin: 26px 0 0;
-}
-
-.code-chip {
-  padding: 15px 20px;
-  border: 1.5px dashed var(--lime-400);
-  border-radius: 14px;
-  background: rgba(197, 160, 89, 0.12);
-  color: var(--lime-400);
-  font: 800 1.1rem/1 var(--font-body);
-  letter-spacing: 0.12em;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.code-chip:hover {
-  background: rgba(197, 160, 89, 0.22);
-}
-
-.countdown {
-  display: inline-flex;
-  align-items: center;
-  padding: 11px 16px;
-  border-radius: 999px;
-  background: rgba(244, 243, 239, 0.1);
-  color: var(--cream-50);
-  font-weight: 700;
-  font-size: 0.94rem;
-}
-
-.promo-visual {
-  text-align: center;
-}
-
-.promo-big {
-  display: block;
-  font-family: var(--font-display);
-  font-size: clamp(7rem, 16vw, 13rem);
-  line-height: 0.8;
-  letter-spacing: -0.04em;
-  color: var(--lime-400);
-}
-
-.promo-big small {
-  font-size: 0.42em;
-  letter-spacing: 0;
-}
-
-.promo-small {
-  display: block;
-  margin-top: 14px;
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(244, 243, 239, 0.8);
-}
-
-@media (max-width: 900px) {
-  .promo-card {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* ---------- Highlight (pop) ---------- */
 .hl {
   background: linear-gradient(transparent 62%, var(--lime-400) 62%, var(--lime-400) 92%, transparent 92%);
@@ -2916,10 +2699,6 @@ td small {
   .topbar-items span {
     display: none;
   }
-
-  .promo-days {
-    display: none;
-  }
 }
 
 /* ---------- 404 ---------- */
@@ -3092,8 +2871,7 @@ td small {
     animation-iteration-count: 1 !important;
   }
 
-  .marquee-track,
-  .sticker svg {
+  .marquee-track {
     animation: none;
   }
 
@@ -3288,25 +3066,9 @@ color: var(--lime-400);
   top: 94.5%;
 }
 
-/* Dark-section text fixes: body text inside dark sections stays white, and the Black Friday sticker stays out of the way on phones */
+/* Dark-section text fixes: body text inside dark sections stays white. */
 .section-dark .section-head p:not(.eyebrow) {
   color: var(--white);
-}
-
-@media (max-width: 640px) {
-  .sticker {
-    top: -14px;
-    right: -2px;
-    width: 70px;
-    height: 70px;
-  }
-  .sticker-core {
-    font-size: 1.1rem;
-  }
-  .sticker-core small {
-    font-size: 0.4rem;
-    letter-spacing: 0.1em;
-  }
 }
 
 /* Phone: Instagram tags sit in a row under the photo so they don't overlap */
@@ -3459,7 +3221,6 @@ blockquote p {
 }
 
 /* Small controls: bigger hit area, same look */
-.promo-code,
 .video-sound {
   position: relative;
 }
@@ -3468,7 +3229,6 @@ blockquote p {
   position: absolute;
 }
 
-.promo-code::after,
 .video-sound::after {
   content: "";
   position: absolute;
