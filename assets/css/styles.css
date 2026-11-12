@@ -1,4 +1,6 @@
 ok
+ok
+ok
 /* ==========================================================================
    Fine Tune Golf - site stylesheet (refreshed look)
    Colors, type and shape live in :root. Change them here and the site follows.
@@ -2927,6 +2929,23 @@ td small {
   color: var(--forest-950);
   -webkit-text-fill-color: currentColor;
   font-weight: 800;
+}
+
+/* KZG inside a link keeps its ink colour, not the green link colour */
+/* KZG inside a link on a dark surface uses light text, not the green link colour */
+.hero a .kzg-chrome,
+.page-hero a .kzg-chrome,
+.section-dark a .kzg-chrome,
+.cta-band a .kzg-chrome,
+.site-footer a .kzg-chrome,
+.topbar a .kzg-chrome,
+.price-card-head a .kzg-chrome {
+  color: var(--cream-50);
+}
+
+/* KZG inside a link on a light surface stays ink */
+a .kzg-chrome {
+  color: var(--forest-950);
 }
 
 /* On dark surfaces KZG takes the surrounding text colour so it stays readable */
