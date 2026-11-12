@@ -208,6 +208,124 @@
     updateToggle();
   }
 
+  /* Scroll depth: a 2px brass hairline along the bottom edge of the sticky header */
+  if (header) {
+    var progress = document.createElement('span');
+    progress.className = 'scroll-progress';
+    progress.setAttribute('aria-hidden', 'true');
+    header.appendChild(progress);
+
+    var progressQueued = false;
+    var drawProgress = function () {
+      progressQueued = false;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var depth = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      progress.style.transform = 'scaleX(' + depth.toFixed(4) + ')';
+    };
+    var queueProgress = function () {
+      if (!progressQueued) {
+        progressQueued = true;
+        window.requestAnimationFrame(drawProgress);
+      }
+    };
+    window.addEventListener('scroll', queueProgress, { passive: true });
+    window.addEventListener('resize', queueProgress);
+    queueProgress();
+  }
+
+  /* Lightbox: links marked data-lightbox open a native dialog. Without JS the link plays the file directly. */
+  document.querySelectorAll('[data-lightbox]').forEach(function (trigger) {
+    var dialog = document.getElementById(trigger.getAttribute('data-lightbox'));
+    if (!dialog || typeof dialog.showModal !== 'function') {
+      return;
+    }
+    var clip = dialog.querySelector('video');
+    var closeBtn = dialog.querySelector('.lightbox-close');
+
+    trigger.addEventListener('click', function (event) {
+      event.preventDefault();
+      if (clip && !clip.getAttribute('src')) {
+        clip.setAttribute('src', clip.getAttribute('data-src'));
+      }
+      dialog.showModal();
+      if (clip) {
+        var started = clip.play();
+        if (started && typeof started.catch === 'function') {
+          started.catch(function () {});
+        }
+      }
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        dialog.close();
+      });
+    }
+
+    // Clicking the dark backdrop (the dialog element itself, outside the video) closes it
+    dialog.addEventListener('click', function (event) {
+      if (event.target === dialog) {
+        dialog.close();
+      }
+    });
+
+    dialog.addEventListener('close', function () {
+      if (clip) {
+        clip.pause();
+        clip.currentTime = 0;
+      }
+      trigger.focus();
+    });
+  });
+
+  /* Sample build spec: pill toggle between two builds in one fixed footprint */
+  document.querySelectorAll('[data-spec-card]').forEach(function (card) {
+    var tabs = card.querySelectorAll('[role="tab"]');
+    var panels = card.querySelectorAll('.spec-readout');
+    if (!tabs.length || !panels.length) {
+      return;
+    }
+    card.classList.add('spec-js');
+
+    function show(key, focusTab) {
+      tabs.forEach(function (tab) {
+        var on = tab.getAttribute('data-spec') === key;
+        tab.setAttribute('aria-selected', String(on));
+        tab.setAttribute('tabindex', on ? '0' : '-1');
+        if (on && focusTab) {
+          tab.focus();
+        }
+      });
+      panels.forEach(function (panel) {
+        var on = panel.getAttribute('data-spec') === key;
+        if (on) {
+          panel.removeAttribute('data-off');
+          panel.removeAttribute('inert');
+          panel.removeAttribute('aria-hidden');
+        } else {
+          panel.setAttribute('data-off', '');
+          panel.setAttribute('inert', '');
+          panel.setAttribute('aria-hidden', 'true');
+        }
+      });
+    }
+
+    tabs.forEach(function (tab, index) {
+      tab.addEventListener('click', function () {
+        show(tab.getAttribute('data-spec'), false);
+      });
+      tab.addEventListener('keydown', function (event) {
+        if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+          event.preventDefault();
+          var next = tabs[(index + (event.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+          show(next.getAttribute('data-spec'), true);
+        }
+      });
+    });
+
+    show(tabs[0].getAttribute('data-spec'), false);
+  });
+
   /* Booking form */
   var form = document.getElementById('booking-form');
   if (!form) {
