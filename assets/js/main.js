@@ -1,5 +1,5 @@
 /* Fine Tune Golf - site behavior.
-   No libraries, no trackers. Edit the settings below when the promotion or contact details change. */
+   No libraries, no trackers. Edit the settings below when the contact details change. */
 (function () {
   'use strict';
 
@@ -14,18 +14,9 @@
 
     // Option B (used while the key above is empty): the visitor's email app opens with the request
     // filled in, addressed to this email. Also offered as a backup if Option A ever fails.
-    contactEmail: 'jeff@jpfcompany.com',
-
-    // Time zone used for the promotion countdown.
-    timeZone: 'America/New_York'
+    contactEmail: 'jeff@jpfcompany.com'
   };
 
-  // Black Friday promotion. Anything marked data-promo is hidden automatically after the last day below.
-  var PROMO = {
-    code: 'BLACKFRIDAY10',
-    // Last day of the offer, as a calendar date in the shop's time zone. The promotion hides after this day.
-    lastDay: '2026-11-27'
-  };
 
   var header = document.querySelector('.site-header');
   var toggle = document.querySelector('.nav-toggle');
@@ -112,93 +103,6 @@
       }
     });
   }
-
-  /* Black Friday promotion: days left, and everything marked data-promo hides once it ends */
-  // Calendar days from today (Eastern Time) to the last day of the offer. Returns null once the offer has ended.
-  function promoDaysLeft() {
-    var parts = new Intl.DateTimeFormat('en-US', {
-      timeZone: CONFIG.timeZone,
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
-    }).formatToParts(new Date());
-
-    var lookup = {};
-    parts.forEach(function (part) {
-      lookup[part.type] = part.value;
-    });
-
-    var today = Date.parse(lookup.year + '-' + lookup.month + '-' + lookup.day + 'T00:00:00Z');
-    var lastDay = Date.parse(PROMO.lastDay + 'T00:00:00Z');
-    var days = Math.round((lastDay - today) / 86400000);
-    return days < 0 ? null : days;
-  }
-
-  function applyPromo() {
-    var days = promoDaysLeft();
-    var countdown = days === 0 ? 'Last day to save' : (days === 1 ? '1 day left' : days + ' days left');
-
-    document.querySelectorAll('[data-promo]').forEach(function (el) {
-      el.hidden = days === null;
-    });
-
-    document.querySelectorAll('[data-promo-days]').forEach(function (el) {
-      el.textContent = days === null ? '' : 'Ends Nov 27 · ' + countdown;
-    });
-  }
-
-  try {
-    applyPromo();
-  } catch (error) {
-    // If the date check fails, the offer simply stays visible. The rest of the page keeps working.
-  }
-
-  /* Copy-to-clipboard for promo codes */
-  function flash(button, message) {
-    button.textContent = message;
-    window.setTimeout(function () {
-      button.textContent = button.getAttribute('data-label');
-    }, 2200);
-  }
-
-  // Copies text with the Clipboard API, falling back to a hidden text field where that is blocked
-  function legacyCopy(text) {
-    var field = document.createElement('textarea');
-    field.value = text;
-    field.setAttribute('readonly', '');
-    field.style.position = 'fixed';
-    field.style.opacity = '0';
-    document.body.appendChild(field);
-    field.select();
-    var copied = false;
-    try {
-      copied = document.execCommand('copy');
-    } catch (error) {
-      copied = false;
-    }
-    document.body.removeChild(field);
-    return copied;
-  }
-
-  function copyText(text) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      return navigator.clipboard.writeText(text).then(function () {
-        return true;
-      }, function () {
-        return legacyCopy(text);
-      });
-    }
-    return Promise.resolve(legacyCopy(text));
-  }
-
-  document.querySelectorAll('[data-copy-code]').forEach(function (button) {
-    button.setAttribute('data-label', button.textContent.trim());
-    button.addEventListener('click', function () {
-      copyText(button.getAttribute('data-copy-code')).then(function (copied) {
-        flash(button, copied ? 'Copied!' : 'Press Ctrl+C');
-      });
-    });
-  });
 
   /* Reveal sections as they scroll into view */
   var revealItems = document.querySelectorAll('.reveal');
@@ -311,13 +215,12 @@
   }
 
   var select = form.elements.namedItem('service');
-  var promoField = form.elements.namedItem('promo');
   var status = form.querySelector('.form-status');
   var submitBtn = form.querySelector('button[type="submit"]');
   var buttonLabel = submitBtn ? submitBtn.textContent : 'Send request';
   var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-  /* Pre-fill from links such as contact.html?service=reshaft or contact.html?promo=BLACKFRIDAY10 */
+  /* Pre-fill from links such as contact.html?service=reshaft */
   var params = new URLSearchParams(window.location.search);
   var requested = params.get('service');
   if (requested && select) {
@@ -326,11 +229,6 @@
         select.value = requested;
       }
     });
-  }
-
-  var requestedPromo = params.get('promo');
-  if (requestedPromo && promoField && requestedPromo.toUpperCase() === PROMO.code) {
-    promoField.value = PROMO.code;
   }
 
   function checkField(input) {
@@ -398,13 +296,12 @@
   }
 
   function buildMailto(data) {
-    var subject = 'Website request: ' + data.serviceLabel + (data.promo ? ' (promo ' + data.promo + ')' : '');
+    var subject = 'Website request: ' + data.serviceLabel;
     var body = [
       'Name: ' + data.name,
       'Email: ' + data.email,
       'Phone: ' + (data.phone || 'not given'),
       'Interested in: ' + data.serviceLabel,
-      'Promo code: ' + (data.promo || 'none'),
       'Preferred days or times: ' + (data.preferred || 'not given'),
       '',
       'Details:',
@@ -457,13 +354,12 @@
     if (CONFIG.web3formsKey) {
       var payload = {
         access_key: CONFIG.web3formsKey,
-        subject: 'Website request: ' + data.serviceLabel + (data.promo ? ' (promo ' + data.promo + ')' : ''),
+        subject: 'Website request: ' + data.serviceLabel,
         from_name: 'Fine Tune Golf website',
         name: data.name,
         email: data.email,
         'Phone': data.phone || 'not given',
         'Interested in': data.serviceLabel,
-        'Promo code': data.promo || 'none',
         'Preferred days or times': data.preferred || 'not given',
         'Details': data.goals || 'not given'
       };
