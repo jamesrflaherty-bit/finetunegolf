@@ -281,7 +281,7 @@
   /* Sample build spec: pill toggle between two builds in one fixed footprint */
   document.querySelectorAll('[data-spec-card]').forEach(function (card) {
     var tabs = card.querySelectorAll('[role="tab"]');
-    var panels = card.querySelectorAll('.spec-readout');
+    var panels = card.querySelectorAll('.spec-panel');
     if (!tabs.length || !panels.length) {
       return;
     }
