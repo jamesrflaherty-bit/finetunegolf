@@ -4203,7 +4203,7 @@ img[src*="assets/img/kzg-quad-iron"] {
   margin: 0;
 }
 
-.spec-readout + .spec-readout {
+.spec-panel + .spec-panel {
   margin-top: 18px;
 }
 
@@ -4238,12 +4238,12 @@ img[src*="assets/img/kzg-quad-iron"] {
   display: grid;
 }
 
-.spec-card.spec-js .spec-readout {
+.spec-card.spec-js .spec-panel {
   grid-area: 1 / 1;
   margin-top: 0;
 }
 
-.spec-card.spec-js .spec-readout[data-off] {
+.spec-card.spec-js .spec-panel[data-off] {
   visibility: hidden;
 }
 
