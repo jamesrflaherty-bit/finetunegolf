@@ -3,29 +3,29 @@
    Colors, type and shape live in :root. Change them here and the site follows.
    ========================================================================== */
 
-/* Self-hosted fonts (latin subsets, same files Google Fonts serves) */
+/* Self-hosted fonts: Plus Jakarta Sans (text and headlines), Cormorant Garamond italic (headline accent words only), JetBrains Mono (numbers and labels) */
 @font-face {
-  font-family: "Instrument Serif";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("../fonts/instrument-serif-regular.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Instrument Serif";
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-  src: url("../fonts/instrument-serif-italic.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Manrope";
+  font-family: "Plus Jakarta Sans";
   font-style: normal;
   font-weight: 400 800;
   font-display: swap;
-  src: url("../fonts/manrope-variable.woff2") format("woff2");
+  src: url("../fonts/plus-jakarta-sans-variable.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: italic;
+  font-weight: 500 600;
+  font-display: swap;
+  src: url("../fonts/cormorant-garamond-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("../fonts/jetbrains-mono-variable.woff2") format("woff2");
 }
 
 :root {
@@ -58,8 +58,10 @@
   --danger: #a12b2b;
 
   /* Type */
-  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, "Times New Roman", serif;
-  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-body: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: var(--font-body);
+  --font-serif: "Cormorant Garamond", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
   /* Shape and depth */
   --radius-sm: 10px;
@@ -131,27 +133,28 @@ h2,
 h3,
 h4 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 700;
   color: var(--forest-900);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
   margin: 0 0 0.45em;
   text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(2.9rem, 6vw, 5.4rem);
-  line-height: 0.98;
-}
-
-h2 {
-  font-size: clamp(2.3rem, 4.4vw, 3.8rem);
+  font-size: clamp(2.2rem, 5.2vw, 4.4rem);
   line-height: 1.02;
 }
 
+h2 {
+  font-size: clamp(1.85rem, 3.7vw, 3.05rem);
+  line-height: 1.08;
+}
+
 h3 {
-  font-size: clamp(1.6rem, 2.4vw, 2.05rem);
-  line-height: 1.1;
+  font-size: clamp(1.25rem, 1.9vw, 1.6rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
 }
 
 h4 {
@@ -164,7 +167,11 @@ h4 {
 h1 em,
 h2 em,
 h3 em {
+  font-family: var(--font-serif);
   font-style: italic;
+  font-weight: 500;
+  font-size: 1.12em;
+  letter-spacing: -0.01em;
   color: var(--forest-600);
 }
 
@@ -234,6 +241,7 @@ ol {
 
 .section-dark {
   background:
+    var(--blueprint),
     radial-gradient(900px 420px at 100% 0%, rgba(197, 160, 89, 0.1), transparent 60%),
     var(--forest-900);
   color: var(--cream-50);
@@ -411,7 +419,7 @@ ol {
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.25s ease,
+  transition: transform 0.3s var(--ease-out), background-color 0.25s ease,
     color 0.25s ease, border-color 0.25s ease, box-shadow 0.3s ease;
 }
 
@@ -867,6 +875,7 @@ ol {
   color: var(--cream-50);
   padding-block: clamp(64px, 8vw, 118px) clamp(80px, 9vw, 130px);
   background:
+    var(--blueprint),
     radial-gradient(880px 520px at 88% 8%, rgba(197, 160, 89, 0.26), transparent 62%),
     radial-gradient(760px 520px at -5% 105%, rgba(142, 150, 146, 0.22), transparent 60%),
     linear-gradient(165deg, var(--forest-800) 0%, var(--forest-950) 100%);
@@ -1132,7 +1141,7 @@ ol {
   background: var(--white);
   border: 1px solid var(--line);
   box-shadow: var(--shadow-sm);
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease;
 }
 
 .bento-tile:hover {
@@ -1258,7 +1267,7 @@ ol {
   background: var(--white);
   border: 1px solid var(--line);
   box-shadow: var(--shadow-sm);
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
 .card:hover {
@@ -1984,6 +1993,7 @@ ol {
   text-align: center;
   color: var(--cream-50);
   background:
+    var(--blueprint),
     radial-gradient(760px 320px at 12% 0%, rgba(197, 160, 89, 0.24), transparent 70%),
     radial-gradient(760px 320px at 92% 100%, rgba(142, 150, 146, 0.2), transparent 70%),
     linear-gradient(160deg, var(--forest-800), var(--forest-950));
@@ -2042,6 +2052,7 @@ ol {
   color: var(--cream-50);
   padding-block: clamp(64px, 8vw, 112px) clamp(72px, 8vw, 110px);
   background:
+    var(--blueprint),
     radial-gradient(900px 440px at 96% 0%, rgba(197, 160, 89, 0.22), transparent 62%),
     radial-gradient(700px 420px at 0% 100%, rgba(30, 86, 49, 0.5), transparent 60%),
     linear-gradient(165deg, var(--forest-800), var(--forest-950));
@@ -2806,7 +2817,7 @@ td small {
   color: var(--forest-950);
   cursor: pointer;
   box-shadow: var(--glow-lime);
-  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 0.25s var(--ease-out);
 }
 
 .video-toggle:hover {
@@ -2843,14 +2854,14 @@ td small {
 .js .reveal {
   opacity: 0;
   translate: 0 22px;
-  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), translate 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: opacity 0.8s var(--ease-out), translate 0.8s var(--ease-out);
 }
 
 .js .card.reveal,
 .js .bento-tile.reveal,
 .js .quote.reveal {
-  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), translate 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
-    transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  transition: opacity 0.8s var(--ease-out), translate 0.8s var(--ease-out),
+    transform 0.35s var(--ease-out), box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
 .js .reveal.is-visible {
@@ -3138,7 +3149,7 @@ color: var(--lime-400);
    ========================================================================== */
 :root {
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
   --dur-fast: 180ms;
   --dur: 320ms;
 }
@@ -3612,54 +3623,6 @@ blockquote p {
   border-color: var(--lime-500);
 }
 
-.video-review {
-  max-width: 440px;
-  margin: 30px auto 0;
-  text-align: center;
-}
-
-.video-review summary {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 44px;
-  padding: 10px 22px;
-  border: 1.5px solid var(--forest-600);
-  border-radius: 999px;
-  color: var(--forest-600);
-  font-weight: 800;
-  cursor: pointer;
-  list-style: none;
-}
-
-.video-review summary::-webkit-details-marker {
-  display: none;
-}
-
-.video-review summary::before {
-  content: "\25B6";
-  font-size: 0.7rem;
-}
-
-.video-review[open] summary::before {
-  content: "\2715";
-}
-
-.video-review summary:hover {
-  background: var(--forest-600);
-  color: var(--white);
-}
-
-.video-review video {
-  display: block;
-  width: 100%;
-  margin-top: 16px;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: 12px;
-  background: var(--forest-950);
-}
-
 /* Final booking section: appointment details live here now */
 .cta-appt {
   display: flex;
@@ -3782,4 +3745,528 @@ p.tag {
 .cta-band .callout-soft {
   background: transparent;
   color: rgba(244, 243, 239, 0.74);
+}
+
+/* ==========================================================================
+   Type system: sans for text and headlines, serif italic only for headline accent words,
+   monospace for numbers, phone numbers and badge labels
+   ========================================================================== */
+.mono,
+.step-num,
+.fit-steps .step-num,
+.tag,
+.pill,
+.status-pill,
+.price-badge,
+.quote-tag,
+.video-tag,
+.spec-readout,
+.spec-readout dd {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+
+.price-amount,
+.price-banner-price,
+.stat-num,
+.feature-num,
+.most-booked-list strong {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Quotes and the wordmark are sans now; the serif is kept for headline accents only */
+.quote blockquote p {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.22rem;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+
+.brand-name {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.btn,
+.nav-cta,
+.primary-nav a,
+.mobile-bar a {
+  font-family: var(--font-body);
+}
+
+/* Phone numbers inside buttons keep the button weight */
+.btn[href^="tel:"] {
+  font-weight: 700;
+}
+
+a[href^="tel:"] {
+  font-variant-numeric: tabular-nums;
+}
+
+.step-num {
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.fit-steps .step-num {
+  font-size: 1rem;
+}
+
+.tag,
+.pill,
+.status-pill,
+.price-badge,
+.quote-tag,
+.video-tag {
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+/* Component headings re-sized for the sans (the old serif ran narrow and small) */
+.brand-name { font-size: 1.45rem; }
+.marquee-track { font-size: clamp(1.05rem, 1.8vw, 1.3rem); font-weight: 600; }
+.bento-tile h3 { font-size: clamp(1.4rem, 2.2vw, 1.9rem); }
+.stat-num { font-size: clamp(3.2rem, 7vw, 5rem); font-weight: 600; letter-spacing: -0.03em; }
+.card h3 { font-size: 1.4rem; }
+.tile h3 { font-size: 1.35rem; }
+.feature-num { font-size: 1.9rem; font-weight: 600; }
+.feature h3,
+.step h3 { font-size: 1.3rem; }
+.price-card-head h3 { font-size: 1.4rem; }
+.price-amount { font-size: 1.5rem; font-weight: 600; }
+.price-banner-price { font-size: 2.6rem; font-weight: 600; letter-spacing: -0.03em; }
+.craft-stage-brand strong { font-size: 1.3rem; }
+.manifesto { font-size: clamp(2rem, 4.4vw, 3.6rem); }
+.glossary dt { font-size: 1.35rem; }
+.article h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
+.article h3 { font-size: 1.3rem; }
+.takeaway strong { font-size: 1.2rem; }
+.bio h3 { font-size: 1.9rem; }
+.notfound .code { font-size: clamp(5rem, 16vw, 9rem); font-weight: 700; }
+.notfound h1 { font-size: clamp(2rem, 4.2vw, 3.2rem); }
+.most-booked-list strong { font-size: 1.6rem; font-weight: 600; }
+.map-address strong { font-size: 1.3rem; }
+
+.eyebrow.eyebrow-script {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brass-700);
+}
+
+/* ==========================================================================
+   Precision workshop layer: blueprint grid, hairlines, thin-line icons, graded photos,
+   damped motion, lightbox, sample spec card
+   ========================================================================== */
+:root {
+  --blueprint:
+    linear-gradient(rgba(142, 150, 146, 0.04) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, rgba(142, 150, 146, 0.04) 1px, transparent 1px) 0 0 / 32px 32px,
+    repeating-linear-gradient(90deg, rgba(184, 155, 94, 0.07) 0 1px, transparent 1px 8px) 0 0 / 100% 7px no-repeat;
+  --hairline: rgba(184, 155, 94, 0.25);
+  --tick: rgba(184, 155, 94, 0.55);
+
+  /* Machined-plate corners, tighter than before */
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 14px;
+  --radius-xl: 16px;
+
+  /* Flat, calibrated depth instead of heavy drop shadows */
+  --shadow-sm: 0 1px 2px rgba(18, 22, 20, 0.05);
+  --shadow: 0 12px 26px -18px rgba(18, 22, 20, 0.3);
+  --shadow-lg: 0 28px 52px -30px rgba(18, 22, 20, 0.55);
+
+  /* One damped curve for every transition: fast start, soft landing, no bounce */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Replace the old noise overlay and stripes on the hero with the grid */
+.hero::before,
+.hero::after {
+  content: none;
+}
+
+/* Section rhythm and metallic divider lines */
+.section {
+  padding-block: clamp(64px, 7vw, 100px);
+}
+
+.hero,
+.page-hero,
+.section-dark,
+.cta-band {
+  box-shadow: inset 0 -1px 0 rgba(184, 155, 94, 0.3);
+}
+
+.section-dark {
+  box-shadow: inset 0 1px 0 rgba(184, 155, 94, 0.3), inset 0 -1px 0 rgba(184, 155, 94, 0.3);
+}
+
+.site-footer::before {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--lime-500) 20%, var(--lime-500) 80%, transparent);
+}
+
+/* 1px hairline borders and corner registration marks */
+.card,
+.quote,
+.price-card,
+.tile,
+.price-banner,
+.spec-card {
+  position: relative;
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-sm);
+}
+
+.card::after,
+.quote::after,
+.price-card::after,
+.tile::after,
+.spec-card::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--tick), var(--tick)) 0 0 / 9px 1px,
+    linear-gradient(var(--tick), var(--tick)) 0 0 / 1px 9px,
+    linear-gradient(var(--tick), var(--tick)) 100% 0 / 9px 1px,
+    linear-gradient(var(--tick), var(--tick)) 100% 0 / 1px 9px,
+    linear-gradient(var(--tick), var(--tick)) 0 100% / 9px 1px,
+    linear-gradient(var(--tick), var(--tick)) 0 100% / 1px 9px,
+    linear-gradient(var(--tick), var(--tick)) 100% 100% / 9px 1px,
+    linear-gradient(var(--tick), var(--tick)) 100% 100% / 1px 9px;
+  background-repeat: no-repeat;
+}
+
+/* Hover: lift 2px, brass border; fill transitions only, nothing bounces */
+.card,
+.quote,
+.price-card,
+.tile {
+  transition:
+    transform var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out);
+}
+
+.card:hover,
+.quote:hover,
+.price-card:hover,
+.tile:hover {
+  transform: translateY(-2px);
+  border-color: rgba(184, 155, 94, 0.6);
+  box-shadow: var(--shadow);
+}
+
+.btn {
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.btn:hover {
+  transform: none;
+}
+
+.btn-gold,
+.btn-gold:hover {
+  box-shadow: none;
+}
+
+.btn-outline-light:hover {
+  background: var(--cream-50);
+  color: var(--forest-950);
+  border-color: var(--cream-50);
+}
+
+/* Thin-line service icons: 1.5px stroke, outlined tile */
+.icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius);
+  background: transparent;
+  border: 1px solid rgba(184, 155, 94, 0.55);
+  color: var(--brass-700);
+  box-shadow: none;
+}
+
+.icon svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.card:hover .icon {
+  transform: none;
+  border-color: var(--lime-500);
+}
+
+/* Precision Calibrations card: faint protractor, -2 to +2 degrees, 1 degree ticks */
+.card.card-calibrations {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20200%20130'%20fill='none'%20stroke='%237a5a14'%20stroke-opacity='.07'%20stroke-width='1.2'%20stroke-linecap='round'%3E%3Cpath%20d='M23.6%2070.9A110%20110%200%200%201%20176.4%2070.9'/%3E%3Cpath%20d='M29.3%2065.7L35.1%2072.6'/%3E%3Cpath%20d='M62.4%2046.6L65.5%2055.1'/%3E%3Cpath%20d='M100.0%2040.0L100.0%2049.0'/%3E%3Cpath%20d='M137.6%2046.6L134.5%2055.1'/%3E%3Cpath%20d='M170.7%2065.7L164.9%2072.6'/%3E%3Cpath%20d='M45.0%2054.7L47.5%2059.1'/%3E%3Cpath%20d='M80.9%2041.7L81.8%2046.6'/%3E%3Cpath%20d='M119.1%2041.7L118.2%2046.6'/%3E%3Cpath%20d='M155.0%2054.7L152.5%2059.1'/%3E%3Cg%20fill='%237a5a14'%20fill-opacity='.07'%20stroke='none'%20font-family='monospace'%20font-size='8'%3E%3Ctext%20x='20.9'%20y='55.8'%20text-anchor='middle'%3E-2&%23176;%3C/text%3E%3Ctext%20x='57.9'%20y='34.4'%20text-anchor='middle'%3E-1&%23176;%3C/text%3E%3Ctext%20x='100.0'%20y='27.0'%20text-anchor='middle'%3E0&%23176;%3C/text%3E%3Ctext%20x='142.1'%20y='34.4'%20text-anchor='middle'%3E+1&%23176;%3C/text%3E%3Ctext%20x='179.1'%20y='55.8'%20text-anchor='middle'%3E+2&%23176;%3C/text%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px bottom 52px;
+  background-size: 168px auto;
+}
+
+/* One photo treatment: gentle contrast, warm shadows, uniform corners and a thin metallic edge */
+img[src*="assets/img/team"],
+img[src*="assets/img/shop-floor"],
+img[src*="assets/img/kzg-quad-iron"] {
+  filter: contrast(1.05) saturate(0.94) sepia(0.07);
+  border: 1px solid rgba(184, 155, 94, 0.4);
+  border-radius: var(--radius-xl);
+}
+
+.media-slot img,
+.craft-stage-img,
+.team-band img {
+  border: 0;
+  border-radius: 0;
+}
+
+.team-band {
+  width: min(100% - 40px, var(--container));
+  margin: clamp(40px, 6vw, 72px) auto;
+  border: 1px solid rgba(184, 155, 94, 0.4);
+  border-radius: var(--radius-xl);
+}
+
+/* Scroll depth: 2px brass hairline on the bottom edge of the sticky header */
+.scroll-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--lime-500);
+  opacity: 0.85;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  pointer-events: none;
+}
+
+/* Lightbox for Mike's video */
+.lightbox {
+  width: min(92vw, 480px);
+  max-width: none;
+  max-height: none;
+  margin: auto;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+}
+
+.lightbox::backdrop {
+  background: rgba(18, 22, 20, 0.9);
+}
+
+.lightbox[open] {
+  animation: lb-in 320ms var(--ease-out);
+}
+
+.lightbox[open]::backdrop {
+  animation: lb-fade 320ms var(--ease-out);
+}
+
+@keyframes lb-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes lb-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lightbox video {
+  display: block;
+  width: 100%;
+  max-height: 78vh;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  background: var(--forest-950);
+  border: 1px solid rgba(184, 155, 94, 0.4);
+  border-radius: var(--radius-xl);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -52px;
+  right: 0;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(184, 155, 94, 0.5);
+  border-radius: 999px;
+  background: rgba(18, 22, 20, 0.6);
+  color: var(--cream-50);
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.lightbox-close:hover {
+  background: var(--lime-400);
+  color: var(--forest-950);
+}
+
+.lightbox-close svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.video-review-wrap {
+  margin: 34px 0 0;
+  text-align: center;
+}
+
+/* Sample build spec card */
+.spec-card {
+  max-width: 880px;
+  margin: 48px auto 0;
+  padding: 24px 28px 26px;
+  border-radius: var(--radius-xl);
+  background: var(--white);
+}
+
+.spec-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.spec-toggle {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  background: var(--cream-100);
+}
+
+.spec-toggle button {
+  min-height: 36px;
+  padding: 9px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-2);
+  font: 600 0.82rem/1 var(--font-body);
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.spec-toggle button[aria-selected="true"] {
+  background: var(--forest-900);
+  color: var(--lime-400);
+}
+
+.spec-readout {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(4, minmax(0, 1fr));
+  margin: 0;
+}
+
+.spec-readout + .spec-readout {
+  margin-top: 18px;
+}
+
+.spec-readout > div {
+  padding: 2px 14px;
+  border-left: 1px solid var(--hairline);
+}
+
+.spec-readout > div:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.spec-readout dt {
+  margin: 0 0 6px;
+  color: var(--ink-3);
+  font: 600 0.66rem/1.2 var(--font-body);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.spec-readout dd {
+  margin: 0;
+  color: var(--forest-900);
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+/* With JS both builds share one footprint, so switching never moves the page */
+.spec-card.spec-js .spec-body {
+  display: grid;
+}
+
+.spec-card.spec-js .spec-readout {
+  grid-area: 1 / 1;
+  margin-top: 0;
+}
+
+.spec-card.spec-js .spec-readout[data-off] {
+  visibility: hidden;
+}
+
+@media (max-width: 640px) {
+  .spec-card {
+    padding: 20px 18px 22px;
+  }
+
+  .spec-readout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 14px;
+  }
+
+  .spec-readout > div:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox[open],
+  .lightbox[open]::backdrop {
+    animation: none;
+  }
 }
