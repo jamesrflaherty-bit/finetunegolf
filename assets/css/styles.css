@@ -58,10 +58,10 @@
   --danger: #a12b2b;
 
   /* Type */
-  --font-body: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-body: "Plus Jakarta Sans", "PJS Fallback", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-display: var(--font-body);
-  --font-serif: "Cormorant Garamond", "Iowan Old Style", Georgia, "Times New Roman", serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-serif: "Cormorant Garamond", "Corm Fallback", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", "JBM Fallback", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
   /* Shape and depth */
   --radius-sm: 10px;
@@ -4275,4 +4275,35 @@ img[src*="assets/img/kzg-quad-iron"] {
   .hero-grid {
     gap: 72px;
   }
+}
+
+/* Metric-matched fallbacks: while a web font loads, the stand-in takes the same space,
+   so the page does not reflow when the real font arrives */
+@font-face {
+  font-family: "PJS Fallback";
+  font-weight: 400 600;
+  src: local("Arial"), local("Liberation Sans"), local("Arimo"), local("Helvetica");
+  size-adjust: 106%;
+}
+
+@font-face {
+  font-family: "PJS Fallback";
+  font-weight: 700 800;
+  src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arimo Bold"), local("Helvetica Bold");
+  size-adjust: 101.5%;
+}
+
+@font-face {
+  font-family: "Corm Fallback";
+  font-style: italic;
+  font-weight: 500 600;
+  src: local("Times New Roman Italic"), local("TimesNewRomanPS-ItalicMT"), local("Liberation Serif Italic"), local("Tinos Italic");
+  size-adjust: 87.8%;
+}
+
+@font-face {
+  font-family: "JBM Fallback";
+  font-weight: 400 600;
+  src: local("Courier New"), local("CourierNewPSMT"), local("Liberation Mono"), local("Cousine");
+  size-adjust: 100%;
 }
