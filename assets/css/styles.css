@@ -3743,3 +3743,43 @@ p.tag {
 .panel-dark p a {
   color: var(--lime-300);
 }
+
+/* Booking callouts: short, scannable notes under the main buttons */
+.callout {
+  max-width: 62ch;
+  margin: 26px auto 0;
+  padding: 14px 18px;
+  border-left: 2px solid var(--lime-500);
+  background: rgba(184, 155, 94, 0.08);
+  color: var(--ink-2);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.callout a {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.callout-soft {
+  margin-top: 12px;
+  border-left-color: var(--steel);
+  background: transparent;
+  color: var(--ink-3);
+  font-size: 0.92rem;
+}
+
+.cta-band .callout {
+  background: rgba(197, 160, 89, 0.1);
+  color: rgba(244, 243, 239, 0.9);
+}
+
+.cta-band .callout a {
+  color: var(--lime-300);
+}
+
+.cta-band .callout-soft {
+  background: transparent;
+  color: rgba(244, 243, 239, 0.74);
+}
