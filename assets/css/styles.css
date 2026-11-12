@@ -2707,7 +2707,7 @@ td small {
 
 @media (max-width: 640px) {
   .topbar .status-pill,
-  .topbar-items span {
+  .topbar-items > span {
     display: none;
   }
 }
@@ -4031,7 +4031,6 @@ a[href^="tel:"] {
 img[src*="assets/img/team"],
 img[src*="assets/img/shop-floor"],
 img[src*="assets/img/kzg-quad-iron"] {
-  filter: contrast(1.05) saturate(0.94) sepia(0.07);
   border: 1px solid rgba(184, 155, 94, 0.4);
   border-radius: var(--radius-xl);
 }
