@@ -51,7 +51,7 @@
     "mainEntity": [
       { "@type": "Question", "name": "How much does it cost to regrip golf clubs?", "acceptedAnswer": { "@type": "Answer", "text": "Standard regripping is $5 per club plus the grip, with precision alignment, custom tape build-up and a core sizing check included. If you bring your own grips, installation is $8 per club. Putter regrips are $10." } },
       { "@type": "Question", "name": "How much does it cost to reshaft a golf club?", "acceptedAnswer": { "@type": "Answer", "text": "Reshafting is $30 per club for steel and $35 per club for graphite, plus the shaft. Every reshaft includes spine alignment, and set reshafts are frequency matched using parallel 0.370-inch tip shafts." } },
-      { "@type": "Question", "name": "How much is a loft and lie adjustment?", "acceptedAnswer": { "@type": "Answer", "text": "A single club is $7 for loft, lie or both. A full iron set of up to 8 clubs is $50 with a written before-and-after spec sheet, and extra irons or wedges are $6 each with a set. The $35 Tour Spec Blueprint, a full-bag loft, lie and length audit, is free with any adjustment." } },
+      { "@type": "Question", "name": "How much is a loft and lie adjustment?", "acceptedAnswer": { "@type": "Answer", "text": "A single club is $7 for loft, lie or both. A full iron set of up to 8 clubs is $50 with a written before-and-after spec sheet, and extra irons or wedges are $6 each with a set. The $35 Precision Spec Blueprint, a full-bag loft, lie and length audit, is free with any adjustment." } },
       { "@type": "Question", "name": "How much does a shaft flex check cost?", "acceptedAnswer": { "@type": "Answer", "text": "A Shaft Flex Check is $35 for a full set, or $5 per club. We measure each shaft's frequency on a Mitchell Golf DigiFlex 2.0 and check loft, lie, length and swing weight across the set. It's free with any full-set reshaft." } },
       { "@type": "Question", "name": "Do you build custom golf clubs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Custom club assembly is $20 per club, and an 8-club custom iron set is $150, frequency matched with parallel 0.370-inch tip shafts. As a KZG Authorized Fitter, we build with KZG components. See how we build." } },
       { "@type": "Question", "name": "How do I drop off my clubs?", "acceptedAnswer": { "@type": "Answer", "text": "All work is by appointment. Call or text (330) 715-2282 to arrange a drop-off time at our shop at 130 Reimer Rd in Wadsworth, Ohio." } }
@@ -167,6 +167,7 @@
         <h2 id="pricing-title">Big-retailer prices. Specialist workmanship.</h2>
         <p>All services are available by appointment. Club drop-offs can be arranged by phone for your convenience. Component costs may vary based on brand, model, and availability.</p>
         <p class="price-labor">Prices shown are labor only. Grips, shafts, adapters and other components are additional.</p>
+        <p class="est-jump" data-estimator-link hidden><a href="#estimator">Estimate your tune-up &darr;</a></p>
       </div>
 
       <div class="most-booked reveal" aria-label="Most booked services">
@@ -188,8 +189,23 @@
           <ul class="price-list">
             <li class="price-row"><div class="price-main"><span class="price-name">Loft &amp; Lie Adjustment</span><span class="price-note">Loft, lie, or both, measured and bent to spec on our Mitchell Steelclub&reg; machine.</span></div><div class="price-amount">$7<span class="price-unit">per club</span></div></li>
             <li class="price-row"><div class="price-main"><span class="price-name">Full Iron Set Calibration <span class="price-badge price-badge-inline">Best Value</span></span><span class="price-note">Up to 8 clubs, with a written before-and-after spec sheet. Additional irons or wedges $6 each.</span></div><div class="price-amount">$50<span class="price-unit">up to 8 clubs</span></div></li>
-            <li class="price-row"><div class="price-main"><span class="price-name">Tour Spec Blueprint</span><span class="price-note">Digital and physical log of length, loft and lie for every club. Free with any adjustment.</span></div><div class="price-amount">$35<span class="price-unit">free with any adjustment</span></div></li>
+            <li class="price-row"><div class="price-main"><span class="price-name">Precision Spec Blueprint</span><span class="price-note">Digital and physical log of length, loft and lie for every club. Free with any adjustment.</span></div><div class="price-amount">$35<span class="price-unit">free with any adjustment</span></div></li>
           </ul>
+          <figure class="spec-sheet" aria-labelledby="sheet-cap">
+            <figcaption id="sheet-cap"><span class="price-badge price-badge-inline">Sample</span> Spec sheet you receive &middot; 7-iron</figcaption>
+            <table>
+              <thead>
+                <tr><th scope="col">Spec</th><th scope="col">Before</th><th scope="col">Target</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Loft</th><td>31.5&deg;</td><td class="spec-hit">31.0&deg;</td></tr>
+                <tr><th scope="row">Lie</th><td>63.0&deg;</td><td class="spec-hit">62.0&deg;</td></tr>
+                <tr><th scope="row">Length</th><td colspan="2">37.00&Prime;</td></tr>
+                <tr><th scope="row">Swing weight</th><td colspan="2">D2</td></tr>
+                <tr><th scope="row">Frequency</th><td colspan="2">312 CPM</td></tr>
+              </tbody>
+            </table>
+          </figure>
         </article>
 
         <article class="price-card reveal" aria-labelledby="price-grips">
@@ -264,6 +280,69 @@
 
       </div>
 
+      <section class="estimator" id="estimator" data-estimator hidden aria-labelledby="est-title">
+        <header class="est-head">
+          <h3 id="est-title">Quick Tune-Up Estimator</h3>
+          <span class="price-badge">Labor only</span>
+        </header>
+
+        <div class="est-block">
+          <p class="est-label" id="est-ll-label">Loft &amp; Lie Adjustment</p>
+          <div class="est-seg" role="group" aria-labelledby="est-ll-label" data-seg="ll">
+            <button type="button" data-val="off" aria-pressed="false">None</button>
+            <button type="button" data-val="single" aria-pressed="false">Single clubs</button>
+            <button type="button" data-val="set" aria-pressed="true">Full iron set</button>
+          </div>
+          <div class="est-line" data-line="ll">
+            <div class="est-step" data-step="ll">
+              <button type="button" data-dir="-1" aria-label="Fewer clubs for loft and lie">&minus;</button>
+              <output aria-live="polite">8</output>
+              <button type="button" data-dir="1" aria-label="More clubs for loft and lie">+</button>
+            </div>
+            <p class="est-hint" data-hint="ll">$50 for 8 clubs + $6/extra iron</p>
+          </div>
+        </div>
+
+        <div class="est-block">
+          <p class="est-label" id="est-grip-label">Grip Installation</p>
+          <div class="est-seg" role="group" aria-labelledby="est-grip-label" data-seg="grip">
+            <button type="button" data-val="off" aria-pressed="true">None</button>
+            <button type="button" data-val="shop" aria-pressed="false">Shop grips</button>
+            <button type="button" data-val="own" aria-pressed="false">Your own grips</button>
+          </div>
+          <div class="est-line" data-line="grip" hidden>
+            <div class="est-step" data-step="grip">
+              <button type="button" data-dir="-1" aria-label="Fewer clubs to regrip">&minus;</button>
+              <output aria-live="polite">8</output>
+              <button type="button" data-dir="1" aria-label="More clubs to regrip">+</button>
+            </div>
+            <p class="est-hint" data-hint="grip">$5/club + grip</p>
+          </div>
+          <div class="est-checks">
+            <label><input type="checkbox" data-opt="putterGrip"> Putter regrip <span class="mono">$10</span></label>
+            <label><input type="checkbox" data-opt="putterLL"> Putter loft &amp; lie <span class="mono">$7</span></label>
+          </div>
+          <p class="est-note">Need existing grips saved intact? Clean grip removal is $8/club.</p>
+        </div>
+
+        <div class="est-block est-bp">
+          <label><input type="checkbox" data-opt="bp"> <span data-bp-text>Precision Spec Blueprint <span class="mono">$35</span></span></label>
+        </div>
+
+        <div class="est-total" aria-live="polite">
+          <div>
+            <p class="est-total-label">Estimated Labor</p>
+            <p class="est-total-note" data-total-note></p>
+          </div>
+          <p class="est-total-amount" data-total>$50</p>
+        </div>
+
+        <div class="est-actions">
+          <a class="btn btn-gold" data-sms href="sms:+13307152282">Text This Build to Book</a>
+          <button class="est-copy" type="button" data-copy>Copy Estimate</button>
+        </div>
+      </section>
+
       <div class="btn-row center" style="margin-top: 48px;">
         <a class="btn btn-gold" href="contact.html?service=club-repair#booking">Book an appointment</a>
         <a class="btn btn-outline" href="tel:+13307152282">Call or text <span class="mono">(330) 715-2282</span></a>
@@ -297,7 +376,7 @@
         <details>
           <summary>How much is a loft and lie adjustment?</summary>
           <div class="answer">
-            <p>A single club is $7 for loft, lie or both. A full iron set of up to 8 clubs is $50 with a written before-and-after spec sheet, and extra irons or wedges are $6 each with a set. The $35 Tour Spec Blueprint, a full-bag loft, lie and length audit, is free with any adjustment.</p>
+            <p>A single club is $7 for loft, lie or both. A full iron set of up to 8 clubs is $50 with a written before-and-after spec sheet, and extra irons or wedges are $6 each with a set. The $35 Precision Spec Blueprint, a full-bag loft, lie and length audit, is free with any adjustment.</p>
           </div>
         </details>
         <details>
@@ -381,6 +460,7 @@
 </nav>
 
 <script src="assets/js/main.js" defer></script>
+<script src="assets/js/estimator.js" defer></script>
 </body>
 </html>
 <!-- Prices updated: iron reshaft $30 per club, woods and hybrids $35, adapter installation $20 -->
