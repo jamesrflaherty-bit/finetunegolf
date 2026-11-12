@@ -4269,3 +4269,10 @@ img[src*="assets/img/kzg-quad-iron"] {
     animation: none;
   }
 }
+
+/* Phones: give the hero text room to breathe so the photo starts below the first screen */
+@media (max-width: 960px) {
+  .hero-grid {
+    gap: 72px;
+  }
+}
