@@ -10,17 +10,22 @@
   <meta property="og:url" content="https://finetunegolf.net/craft.html">
   <meta property="og:description" content="Measured, hand-built and fitted to you, with KZG components in Wadsworth, Ohio.">
   <link rel="canonical" href="https://finetunegolf.net/craft.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
-  <link rel="icon" href="assets/img/logo-192.png" type="image/png" sizes="192x192">
+  <link rel="icon" href="assets/img/icon-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#121614">
-  <link rel="preload" href="assets/fonts/instrument-serif-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/manrope-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/plus-jakarta-sans-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/cormorant-garamond-italic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/styles.css">
-  <meta property="og:image" content="https://finetunegolf.net/assets/img/team.webp">
+  <meta property="og:image" content="https://finetunegolf.net/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Fine Tune Golf: custom club fitting, building and repair in Wadsworth, Ohio">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://finetunegolf.net/assets/img/team.webp">
+  <meta name="twitter:image" content="https://finetunegolf.net/assets/img/og-image.png">
+  <meta name="twitter:image:alt" content="Fine Tune Golf: custom club fitting, building and repair in Wadsworth, Ohio">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -39,7 +44,7 @@
 <div class="topbar">
   <div class="container topbar-inner">
     <div class="topbar-items">
-      <a href="tel:+13307152282">(330) 715-2282</a>
+      <a href="tel:+13307152282"><span class="mono">(330) 715-2282</span></a>
       <span>130 Reimer Rd, Wadsworth, OH</span>
     </div>
     <span class="status-pill">By appointment &middot; call or text us</span>
@@ -208,24 +213,50 @@
 
       <div class="grid grid-4">
         <div class="card reveal">
-          <span class="step-num" aria-hidden="true">1</span>
+          <span class="step-num" aria-hidden="true">01</span>
           <h3>Select</h3>
           <p>We select <span class="kzg-chrome">KZG</span> heads and shafts based on your fitting, your preferences and your budget.</p>
         </div>
         <div class="card reveal">
-          <span class="step-num" aria-hidden="true">2</span>
+          <span class="step-num" aria-hidden="true">02</span>
           <h3>Measure</h3>
           <p>Shafts are checked for frequency, and loft and lie are set and verified on the angle machine.</p>
         </div>
         <div class="card reveal">
-          <span class="step-num" aria-hidden="true">3</span>
+          <span class="step-num" aria-hidden="true">03</span>
           <h3>Match</h3>
           <p>Components are matched for consistency. Set shafts are frequency matched using parallel 0.370-inch tip shafts, so each club progresses from the one before it.</p>
         </div>
         <div class="card reveal">
-          <span class="step-num" aria-hidden="true">4</span>
+          <span class="step-num" aria-hidden="true">04</span>
           <h3>Build</h3>
           <p>Clubs are hand-assembled in our shop, then handed over ready to play.</p>
+        </div>
+      </div>
+
+      <div class="spec-card reveal" data-spec-card>
+        <div class="spec-head">
+          <span class="tag">Sample build</span>
+          <div class="spec-toggle" role="tablist" aria-label="Sample build type">
+            <button type="button" role="tab" id="spec-tab-iron" aria-selected="true" aria-controls="spec-iron" data-spec="iron">7-Iron Build</button>
+            <button type="button" role="tab" id="spec-tab-driver" aria-selected="false" aria-controls="spec-driver" data-spec="driver" tabindex="-1">Driver Build</button>
+          </div>
+        </div>
+        <div class="spec-body">
+          <dl class="spec-readout" id="spec-iron" role="tabpanel" aria-labelledby="spec-tab-iron" data-spec="iron">
+            <div><dt>Head</dt><dd>KZG Forged</dd></div>
+            <div><dt>Frequency</dt><dd>312 CPM</dd></div>
+            <div><dt>Loft</dt><dd>32.0&deg;</dd></div>
+            <div><dt>Lie</dt><dd>61.5&deg;</dd></div>
+            <div><dt>Swing wt</dt><dd>D2</dd></div>
+          </dl>
+          <dl class="spec-readout" id="spec-driver" role="tabpanel" aria-labelledby="spec-tab-driver" data-spec="driver">
+            <div><dt>Head</dt><dd>KZG Ti driver</dd></div>
+            <div><dt>Frequency</dt><dd>254 CPM</dd></div>
+            <div><dt>Loft</dt><dd>10.5&deg;</dd></div>
+            <div><dt>Lie</dt><dd>58.0&deg;</dd></div>
+            <div><dt>Swing wt</dt><dd>D3</dd></div>
+          </dl>
         </div>
       </div>
     </div>
@@ -279,7 +310,7 @@
       <p>Book a fitting or ask about a build. We'll tell you honestly what your clubs need.</p>
       <div class="btn-row">
         <a class="btn btn-gold" href="contact.html?service=custom-fitting#booking">Book a fitting</a>
-        <a class="btn btn-outline-light" href="tel:+13307152282">Call or text (330) 715-2282</a>
+        <a class="btn btn-outline-light" href="tel:+13307152282">Call or text <span class="mono">(330) 715-2282</span></a>
       </div>
     </div>
   </section>
@@ -303,9 +334,10 @@
       <h2>Visit &amp; Contact</h2>
       <ul>
         <li>130 Reimer Rd<br>Wadsworth, OH 44281</li>
-        <li><a href="tel:+13307152282">(330) 715-2282</a></li>
+        <li><a href="tel:+13307152282"><span class="mono">(330) 715-2282</span></a></li>
         <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=130+Reimer+Rd%2C+Wadsworth%2C+OH+44281" target="_blank" rel="noopener">Get directions</a></li>
         <li><a href="https://maps.app.goo.gl/mqLa4XzYkEKV1N688" target="_blank" rel="noopener">See us on Google</a></li>
+        <li><a href="FineTuneGolf.vcf" download="FineTuneGolf.vcf" type="text/vcard">Save Contact</a></li>
       </ul>
     </div>
     <div>

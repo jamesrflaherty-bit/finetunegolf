@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Fine Tune Golf">
+  <rect width="64" height="64" rx="12" fill="#121614"/>
+  <g fill="none" stroke="#B89B5E" stroke-width="1.5" stroke-linecap="round">
+    <circle cx="32" cy="32" r="22"/>
+    <path d="M32 5v11M32 48v11M5 32h11M48 32h11"/>
+  </g>
+  <text x="32" y="36.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing=".6" fill="#B89B5E">FTG</text>
+</svg>
