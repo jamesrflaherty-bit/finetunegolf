@@ -4875,3 +4875,57 @@ main > .section:has(+ :is(.section-dark, .cta-band)) {
   color: var(--cream-50);
   -webkit-text-fill-color: currentColor;
 }
+
+/* Footer name, address and phone as a real <address> element */
+.site-footer address {
+  font-style: normal;
+}
+
+/* "What sets us apart" strip: four short facts, two columns on wide screens */
+.diff-strip {
+  margin-top: 40px;
+  padding: 24px 28px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--white);
+}
+.diff-strip h3 {
+  margin: 0 0 14px;
+  font-size: 1.05rem;
+}
+.diff-strip .checklist {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 32px;
+  margin: 0;
+}
+@media (max-width: 760px) {
+  .diff-strip {
+    padding: 20px;
+  }
+  .diff-strip .checklist {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Expert Notes: short definitions under the contents list */
+.quick-defs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 32px;
+  margin: 28px 0 0;
+}
+.quick-defs dt {
+  font-weight: 700;
+  color: var(--forest-950);
+}
+.quick-defs dd {
+  margin: 4px 0 0;
+  color: var(--forest-800);
+  font-size: 0.97rem;
+}
+@media (max-width: 760px) {
+  .quick-defs {
+    grid-template-columns: 1fr;
+  }
+}
