@@ -48,7 +48,7 @@
       lines.push('Putter regrip: $' + PRICE.putterGrip);
     }
 
-    var anyLL = state.ll !== 'off';
+    var anyLL = state.ll === 'set';
     if (anyLL) {
       lines.push('Precision Spec Blueprint ($35 value): included free');
     } else if (state.bp) {
