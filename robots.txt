@@ -1,5 +1,27 @@
+# Fine Tune Golf: search engines and AI search/answer crawlers are welcome on every public page.
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 User-agent: *
 Allow: /
 
-# Assumes the site is published at finetunegolf.net. Change the domain if you publish elsewhere.
 Sitemap: https://finetunegolf.net/sitemap.xml
