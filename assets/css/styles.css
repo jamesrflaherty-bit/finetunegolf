@@ -4776,3 +4776,102 @@ img[src*="assets/img/kzg-quad-iron"] {
     font-size: 0.8rem;
   }
 }
+
+/* ---------- Section tones and soft blends ----------
+   Light sections take one of four close tones so each topic reads as its own band.
+   Instead of hard edges, the top of each light section fades in from the colour
+   above it over a 120-150px zone (pure CSS, no extra markup). */
+:root {
+  --tint-50: #efe9dc;
+  --blend: 120px;
+}
+
+@media (min-width: 900px) {
+  :root {
+    --blend: 150px;
+  }
+}
+
+.section-tint {
+  background-color: var(--tint-50);
+}
+
+main > .section:not(.section-dark) {
+  background-image:
+    linear-gradient(to bottom, var(--blend-from, transparent), transparent var(--blend)),
+    linear-gradient(to top, var(--blend-to, transparent), transparent var(--blend));
+  background-repeat: no-repeat;
+}
+
+/* Colour the fade starts from = the section above */
+main > .section:not(.section-alt, .section-white, .section-tint, .section-dark) + .section {
+  --blend-from: var(--cream-50);
+}
+main > .section-alt + .section {
+  --blend-from: var(--cream-100);
+}
+main > .section-white + .section {
+  --blend-from: var(--white);
+}
+main > .section-tint + .section {
+  --blend-from: var(--tint-50);
+}
+
+/* Next to a dark band, a soft shade eases the change instead of a ruled line */
+main > :is(.hero, .page-hero, .section-dark, .cta-band) + .section {
+  --blend-from: rgba(18, 22, 20, 0.07);
+}
+main > .section:has(+ :is(.section-dark, .cta-band)) {
+  --blend-to: rgba(18, 22, 20, 0.05);
+}
+
+/* Remove the ruled divider lines between bands */
+.hero,
+.page-hero,
+.section-dark,
+.cta-band {
+  box-shadow: none;
+}
+
+/* ---------- Scroll pop-up ----------
+   Fades up 24px once, when about 15% of the element is on screen. Items that
+   arrive together cascade 120ms apart (delay set by main.js). Hover easing on
+   cards and buttons is kept, and the delay only applies to the entrance. */
+.js .reveal,
+.js .card.reveal,
+.js .bento-tile.reveal,
+.js .quote.reveal {
+  opacity: 0;
+  translate: 0 24px;
+  transition:
+    opacity 0.7s var(--ease-out) var(--reveal-delay, 0s),
+    translate 0.7s var(--ease-out) var(--reveal-delay, 0s),
+    transform var(--dur, 0.32s) var(--ease-out),
+    box-shadow var(--dur, 0.32s) var(--ease-out),
+    border-color var(--dur, 0.32s) var(--ease-out);
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  translate: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal,
+  .js .card.reveal,
+  .js .bento-tile.reveal,
+  .js .quote.reveal {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+}
+
+/* KZG inside dark panels and tiles reads in cream, like the other dark bands */
+.panel-dark .kzg-chrome,
+.panel-dark a .kzg-chrome,
+.bento-tile.dark .kzg-chrome,
+.bento-tile.dark a .kzg-chrome {
+  color: var(--cream-50);
+  -webkit-text-fill-color: currentColor;
+}
