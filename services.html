@@ -166,7 +166,6 @@
         <h2 id="pricing-title">Big-retailer prices. Specialist workmanship.</h2>
         <p>All services are available by appointment. Club drop-offs can be arranged by phone for your convenience. Component costs may vary based on brand, model, and availability.</p>
         <p class="price-labor">Prices shown are labor only. Grips, shafts, adapters and other components are additional.</p>
-        <p class="est-jump" data-estimator-link hidden><a href="#estimator">Estimate your tune-up &darr;</a></p>
       </div>
 
       <div class="most-booked reveal" aria-label="Most booked services">
@@ -245,69 +244,6 @@
         </article>
 
       </div>
-
-      <section class="estimator" id="estimator" data-estimator hidden aria-labelledby="est-title">
-        <header class="est-head">
-          <h3 id="est-title">Quick Tune-Up Estimator</h3>
-          <span class="price-badge">Labor only</span>
-        </header>
-
-        <div class="est-block">
-          <p class="est-label" id="est-ll-label">Loft &amp; Lie Adjustment</p>
-          <div class="est-seg" role="group" aria-labelledby="est-ll-label" data-seg="ll">
-            <button type="button" data-val="off" aria-pressed="false">None</button>
-            <button type="button" data-val="single" aria-pressed="false">Single clubs</button>
-            <button type="button" data-val="set" aria-pressed="true">Full iron set</button>
-          </div>
-          <div class="est-line" data-line="ll">
-            <div class="est-step" data-step="ll">
-              <button type="button" data-dir="-1" aria-label="Fewer clubs for loft and lie">&minus;</button>
-              <output aria-live="polite">8</output>
-              <button type="button" data-dir="1" aria-label="More clubs for loft and lie">+</button>
-            </div>
-            <p class="est-hint" data-hint="ll">$50 for 8 clubs + $6/extra iron</p>
-          </div>
-        </div>
-
-        <div class="est-block">
-          <p class="est-label" id="est-grip-label">Grip Installation</p>
-          <div class="est-seg" role="group" aria-labelledby="est-grip-label" data-seg="grip">
-            <button type="button" data-val="off" aria-pressed="true">None</button>
-            <button type="button" data-val="shop" aria-pressed="false">Shop grips</button>
-            <button type="button" data-val="own" aria-pressed="false">Your own grips</button>
-          </div>
-          <div class="est-line" data-line="grip" hidden>
-            <div class="est-step" data-step="grip">
-              <button type="button" data-dir="-1" aria-label="Fewer clubs to regrip">&minus;</button>
-              <output aria-live="polite">8</output>
-              <button type="button" data-dir="1" aria-label="More clubs to regrip">+</button>
-            </div>
-            <p class="est-hint" data-hint="grip">$5/club + grip</p>
-          </div>
-          <div class="est-checks">
-            <label><input type="checkbox" data-opt="putterGrip"> Putter regrip <span class="mono">$10</span></label>
-          </div>
-          <p class="est-note">Need existing grips saved intact? Clean grip removal is $8/club.</p>
-        </div>
-
-        <div class="est-block est-bp">
-          <label><input type="checkbox" data-opt="bp"> <span data-bp-text>Precision Spec Blueprint <span class="mono">$10/club</span></span></label>
-        </div>
-
-        <div class="est-total" aria-live="polite">
-          <div>
-            <p class="est-total-label">Estimated Labor</p>
-            <p class="est-total-note" data-total-note></p>
-          </div>
-          <p class="est-total-amount" data-total>$50</p>
-        </div>
-
-        <div class="est-actions">
-          <p class="est-custom">Need shaft swaps, extensions, or a full fitting? Just mention it when your text opens.</p>
-          <a class="btn btn-gold" data-sms href="sms:+13307152282">Text This Build to Book</a>
-          <button class="est-copy" type="button" data-copy>Copy Estimate</button>
-        </div>
-      </section>
 
       <div class="btn-row center" style="margin-top: 48px;">
         <a class="btn btn-gold" href="contact.html?service=club-repair#booking">Book an appointment</a>
@@ -420,7 +356,6 @@
 </nav>
 
 <script src="assets/js/main.js" defer></script>
-<script src="assets/js/estimator.js" defer></script>
 </body>
 </html>
 <!-- Prices updated: iron reshaft $30 per club, woods and hybrids $35, adapter installation $20 -->
