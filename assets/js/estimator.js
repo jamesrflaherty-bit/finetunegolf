@@ -7,7 +7,7 @@
     return;
   }
 
-  var PRICE = { single: 7, set: 50, setExtra: 6, shop: 5, own: 8, putterGrip: 10, blueprint: 35, bundle: 10, flexClub: 5, flexSet: 35 };
+  var PRICE = { single: 7, set: 50, setExtra: 6, shop: 5, own: 8, putterGrip: 10, blueprint: 10, bundle: 10, flexClub: 5, flexSet: 35 };
   var LIMIT = { single: [1, 7], set: [8, 14], grip: [1, 14] };
   var state = { ll: 'set', count: { single: 1, set: 8 }, grip: 'off', gripCount: 8, putterGrip: false, bp: false, flex: false };
 
@@ -48,19 +48,26 @@
       lines.push('Putter regrip: $' + PRICE.putterGrip);
     }
 
+    /* Club count for per-club extras: the loft and lie count, or the grip count if higher */
+    var clubCount = 0;
+    if (state.ll === 'set') { clubCount = state.count.set; }
+    else if (state.ll === 'single') { clubCount = state.count.single; }
+    if (state.grip !== 'off') { clubCount = Math.max(clubCount, state.gripCount); }
+
+    /* Blueprint: $10 a club, free with a full iron set calibration */
+    var bpCount = clubCount || 1;
+    var bpCost = bpCount * PRICE.blueprint;
+    var bpClubs = bpCount + (bpCount === 1 ? ' club' : ' clubs');
     var anyLL = state.ll === 'set';
     if (anyLL) {
-      lines.push('Precision Spec Blueprint ($35 value): included free');
+      lines.push('Precision Spec Blueprint, ' + bpClubs + ' ($' + bpCost + ' value): included free');
     } else if (state.bp) {
-      total += PRICE.blueprint;
-      lines.push('Precision Spec Blueprint: $' + PRICE.blueprint);
+      total += bpCost;
+      lines.push('Precision Spec Blueprint, ' + bpClubs + ': $' + bpCost);
     }
 
     /* Flex check follows the club count: $5 a club, capped at the $35 full-set rate from 7 clubs */
-    var flexCount = 0;
-    if (state.ll === 'set') { flexCount = state.count.set; }
-    else if (state.ll === 'single') { flexCount = state.count.single; }
-    if (state.grip !== 'off') { flexCount = Math.max(flexCount, state.gripCount); }
+    var flexCount = clubCount;
     var flexFull = flexCount === 0 || flexCount >= 7;
     var flexCost = flexFull ? PRICE.flexSet : flexCount * PRICE.flexClub;
     if (state.flex) {
@@ -75,7 +82,7 @@
       lines.push('Full-Bag Refresh Bundle: -$' + PRICE.bundle);
     }
 
-    return { flexFull: flexFull, flexCount: flexCount, flexCost: flexCost, lines: lines, total: total, anyLL: anyLL, bundle: bundle, plusGrips: state.grip === 'shop' };
+    return { bpCount: bpCount, bpCost: bpCost, flexFull: flexFull, flexCount: flexCount, flexCost: flexCost, lines: lines, total: total, anyLL: anyLL, bundle: bundle, plusGrips: state.grip === 'shop' };
   }
 
   function render() {
@@ -103,8 +110,8 @@
     bpBox.disabled = r.anyLL;
     bpBox.checked = r.anyLL || state.bp;
     bpText.innerHTML = r.anyLL
-      ? 'Precision Spec Blueprint ($35 value) &mdash; <strong>INCLUDED FREE</strong>'
-      : 'Precision Spec Blueprint <span class="mono">$35</span>';
+      ? 'Precision Spec Blueprint ($' + r.bpCost + ' value) &mdash; <strong>INCLUDED FREE</strong>'
+      : 'Precision Spec Blueprint <span class="mono">$' + r.bpCost + ' · ' + r.bpCount + (r.bpCount === 1 ? ' club' : ' clubs') + '</span>';
 
     q('[data-opt="flex"]').checked = state.flex;
     q('[data-flex-text]').innerHTML = 'Shaft Flex Check <span class="mono">' +
