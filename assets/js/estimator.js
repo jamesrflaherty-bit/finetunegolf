@@ -58,7 +58,6 @@
     var bpCount = clubCount || 1;
     var bpCost = bpCount * PRICE.blueprint;
     var bpClubs = bpCount + (bpCount === 1 ? ' club' : ' clubs');
-    var anyLL = false;
     if (state.bp) {
       total += bpCost;
       lines.push('Precision Spec Blueprint, ' + bpClubs + ': $' + bpCost);
@@ -80,7 +79,7 @@
       lines.push('Full-Bag Refresh Bundle: -$' + PRICE.bundle);
     }
 
-    return { bpCount: bpCount, bpCost: bpCost, flexFull: flexFull, flexCount: flexCount, flexCost: flexCost, lines: lines, total: total, anyLL: anyLL, bundle: bundle, plusGrips: state.grip === 'shop' };
+    return { bpCount: bpCount, bpCost: bpCost, flexFull: flexFull, flexCount: flexCount, flexCost: flexCost, lines: lines, total: total, bundle: bundle, plusGrips: state.grip === 'shop' };
   }
 
   function render() {
@@ -105,11 +104,8 @@
       q('[data-hint="grip"]').textContent = state.grip === 'shop' ? '$5/club + grip' : '$8/club';
     }
 
-    bpBox.disabled = r.anyLL;
-    bpBox.checked = r.anyLL || state.bp;
-    bpText.innerHTML = r.anyLL
-      ? 'Precision Spec Blueprint ($' + r.bpCost + ' value) &mdash; <strong>INCLUDED FREE</strong>'
-      : 'Precision Spec Blueprint <span class="mono">$' + r.bpCost + ' · ' + r.bpCount + (r.bpCount === 1 ? ' club' : ' clubs') + '</span>';
+    bpBox.checked = state.bp;
+    bpText.innerHTML = 'Precision Spec Blueprint <span class="mono">$' + r.bpCost + ' · ' + r.bpCount + (r.bpCount === 1 ? ' club' : ' clubs') + '</span>';
 
     q('[data-opt="flex"]').checked = state.flex;
     q('[data-flex-text]').innerHTML = 'Shaft Flex Check <span class="mono">' +
