@@ -54,14 +54,12 @@
     else if (state.ll === 'single') { clubCount = state.count.single; }
     if (state.grip !== 'off') { clubCount = Math.max(clubCount, state.gripCount); }
 
-    /* Blueprint: $10 a club, free with a full iron set calibration */
+    /* Blueprint: $10 a club */
     var bpCount = clubCount || 1;
     var bpCost = bpCount * PRICE.blueprint;
     var bpClubs = bpCount + (bpCount === 1 ? ' club' : ' clubs');
-    var anyLL = state.ll === 'set';
-    if (anyLL) {
-      lines.push('Precision Spec Blueprint, ' + bpClubs + ' ($' + bpCost + ' value): included free');
-    } else if (state.bp) {
+    var anyLL = false;
+    if (state.bp) {
       total += bpCost;
       lines.push('Precision Spec Blueprint, ' + bpClubs + ': $' + bpCost);
     }
