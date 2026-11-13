@@ -519,14 +519,24 @@
 // Skipped when the visitor asks for reduced motion.
 (function () {
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  document.addEventListener('pointerdown', function (e) {
-    if (e.button !== 0 && e.pointerType === 'mouse') return;
+  function ring(x, y) {
     var s = document.createElement('span');
     s.className = 'click-ripple';
-    s.style.left = e.clientX + 'px';
-    s.style.top = e.clientY + 'px';
+    s.style.left = x + 'px';
+    s.style.top = y + 'px';
     document.body.appendChild(s);
     s.addEventListener('animationend', function () { s.remove(); });
+  }
+  // Mouse: ring on press. Touch and pen: ring only on a real tap (a click),
+  // so starting a scroll never draws a ring under the finger.
+  var lastType = 'mouse';
+  document.addEventListener('pointerdown', function (e) {
+    lastType = e.pointerType || 'mouse';
+    if (lastType === 'mouse' && e.button === 0) ring(e.clientX, e.clientY);
+  }, { passive: true });
+  document.addEventListener('click', function (e) {
+    if (lastType === 'mouse' || e.detail === 0) return;
+    ring(e.clientX, e.clientY);
   });
 })();
 
