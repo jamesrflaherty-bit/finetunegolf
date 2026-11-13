@@ -104,17 +104,22 @@
     });
   }
 
-  /* Reveal sections as they scroll into view */
+  /* Reveal key elements as they scroll into view (once each). Elements that arrive
+     in the same moment, like a row of cards, cascade 120ms apart. */
   var revealItems = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
+  var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if ('IntersectionObserver' in window && !calm) {
     var observer = new IntersectionObserver(function (entries, obs) {
+      var n = 0;
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
+          if (n > 0) entry.target.style.setProperty('--reveal-delay', Math.min(n, 5) * 120 + 'ms');
+          n++;
           entry.target.classList.add('is-visible');
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.15, rootMargin: '0px 0px -24px 0px' });
 
     revealItems.forEach(function (el) {
       observer.observe(el);
