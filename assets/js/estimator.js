@@ -7,9 +7,9 @@
     return;
   }
 
-  var PRICE = { single: 7, set: 50, setExtra: 6, shop: 5, own: 8, putterGrip: 10, putterLL: 7, blueprint: 35, bundle: 10, flexClub: 5, flexSet: 35 };
+  var PRICE = { single: 7, set: 50, setExtra: 6, shop: 5, own: 8, putterGrip: 10, blueprint: 35, bundle: 10, flexClub: 5, flexSet: 35 };
   var LIMIT = { single: [1, 7], set: [8, 14], grip: [1, 14] };
-  var state = { ll: 'set', count: { single: 1, set: 8 }, grip: 'off', gripCount: 8, putterGrip: false, putterLL: false, bp: false, flex: false };
+  var state = { ll: 'set', count: { single: 1, set: 8 }, grip: 'off', gripCount: 8, putterGrip: false, bp: false, flex: false };
 
   function q(sel) { return root.querySelector(sel); }
   function all(sel) { return Array.prototype.slice.call(root.querySelectorAll(sel)); }
@@ -36,10 +36,6 @@
       total += setCost;
       lines.push('Full iron set loft & lie, ' + n + ' clubs: $' + setCost);
     }
-    if (state.putterLL) {
-      total += PRICE.putterLL;
-      lines.push('Putter loft & lie: $' + PRICE.putterLL);
-    }
     if (state.grip !== 'off') {
       n = state.gripCount;
       var each = PRICE[state.grip];
@@ -52,7 +48,7 @@
       lines.push('Putter regrip: $' + PRICE.putterGrip);
     }
 
-    var anyLL = state.ll !== 'off' || state.putterLL;
+    var anyLL = state.ll !== 'off';
     if (anyLL) {
       lines.push('Precision Spec Blueprint ($35 value): included free');
     } else if (state.bp) {
