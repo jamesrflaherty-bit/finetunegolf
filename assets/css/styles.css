@@ -5004,3 +5004,8 @@ main > .section:has(+ :is(.section-dark, .cta-band)) {
   white-space: normal;
   max-width: 100%;
 }
+
+/* Long contact links (the partnerships email) may break on the smallest phones */
+.info-list a {
+  overflow-wrap: anywhere;
+}
