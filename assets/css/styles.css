@@ -4929,3 +4929,64 @@ main > .section:has(+ :is(.section-dark, .cta-band)) {
     grid-template-columns: 1fr;
   }
 }
+
+/* Service area block: five towns, drive time and route, one line each */
+.area-list {
+  list-style: none;
+  margin: 32px auto 0;
+  padding: 0;
+  max-width: 860px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--white);
+  overflow: hidden;
+}
+.area-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) 8.5rem minmax(0, 1.2fr);
+  gap: 6px 20px;
+  align-items: baseline;
+  padding: 14px 22px;
+  border-top: 1px solid var(--line);
+}
+.area-list li:first-child {
+  border-top: 0;
+}
+.area-towns {
+  font-weight: 700;
+  color: var(--forest-950);
+}
+.area-towns a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--lime-500);
+  text-underline-offset: 3px;
+}
+.area-time {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--forest-700);
+  white-space: nowrap;
+}
+.area-route {
+  color: var(--forest-800);
+  font-size: 0.95rem;
+}
+.area-list + .btn-row {
+  margin-top: 24px;
+}
+.area-note {
+  max-width: 60ch;
+  margin: 24px auto 0;
+  text-align: center;
+}
+@media (max-width: 760px) {
+  .area-list li {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 14px 18px;
+  }
+  .area-route {
+    grid-column: 1 / -1;
+  }
+}
