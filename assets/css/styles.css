@@ -4990,3 +4990,17 @@ main > .section:has(+ :is(.section-dark, .cta-band)) {
     grid-column: 1 / -1;
   }
 }
+
+/* Pills may wrap on any phone width (the mono face is wider than the old sans, which pushed the contact pill past 390px screens) */
+@media (max-width: 480px) {
+  .status-pill {
+    white-space: normal;
+    max-width: 100%;
+  }
+}
+
+/* In the contact info card the pill sits in a narrow column at tablet widths, so it wraps there too */
+.info-card .status-pill {
+  white-space: normal;
+  max-width: 100%;
+}
